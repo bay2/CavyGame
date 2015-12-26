@@ -1,0 +1,5 @@
+/* Localized versions of Info.plist keys */
+
+CFBundleDisplayName="豚鼠游戏";
+NSLocationAlwaysUsageDescription="将根据您的地理位置信息，提供精准服务";
+NSLocationWhenInUseUsageDescription="若不允许，您将无法使用地图定位等相关的功能";

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="7706" systemVersion="15C50" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ClassItemVC" customModule="CavyGame" customModuleProvider="target">
+            <connections>
+                <outlet property="down" destination="ZJJ-Ef-yf0" id="Tnz-Td-ZVq"/>
+                <outlet property="gameSize" destination="XJ0-HG-bZF" id="AUw-H7-9eS"/>
+                <outlet property="gameTitle" destination="Do4-HY-lYR" id="RSh-kY-Hgv"/>
+                <outlet property="iconBtn" destination="jMS-Dn-AqD" id="NIf-9W-gyb"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="140" height="253"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="游戏名称" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Do4-HY-lYR">
+                    <rect key="frame" x="0.0" y="155" width="140" height="17"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="Bro-37-1Pi"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="55.0M" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJ0-HG-bZF">
+                    <rect key="frame" x="0.0" y="179" width="140" height="12"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="12" id="xwM-g5-Wyt"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJJ-Ef-yf0" customClass="DownloadWithProgressButton" customModule="CavyGame" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="200" width="140" height="32"/>
+                    <animations/>
+                    <color key="backgroundColor" red="0.87058823529999996" green="0.87058823529999996" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="b1K-fa-jZb"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="下载">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMS-Dn-AqD">
+                    <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="140" id="1IG-Ii-qZx"/>
+                    </constraints>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onClickBtn:" destination="-1" eventType="touchUpInside" id="Vz7-wr-DdP"/>
+                    </connections>
+                </button>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="jMS-Dn-AqD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="C53-5Z-szn"/>
+                <constraint firstAttribute="trailing" secondItem="Do4-HY-lYR" secondAttribute="trailing" id="G5i-6T-E6r"/>
+                <constraint firstAttribute="trailing" secondItem="XJ0-HG-bZF" secondAttribute="trailing" id="Hzm-5p-33X"/>
+                <constraint firstAttribute="trailing" secondItem="ZJJ-Ef-yf0" secondAttribute="trailing" id="Nel-XI-aDd"/>
+                <constraint firstAttribute="trailing" secondItem="jMS-Dn-AqD" secondAttribute="trailing" id="Pjw-0j-B1X"/>
+                <constraint firstItem="XJ0-HG-bZF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Tbn-ET-hx5"/>
+                <constraint firstItem="ZJJ-Ef-yf0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="WkP-yb-T51"/>
+                <constraint firstItem="jMS-Dn-AqD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ZsU-a2-fpD"/>
+                <constraint firstItem="ZJJ-Ef-yf0" firstAttribute="top" secondItem="XJ0-HG-bZF" secondAttribute="bottom" constant="9" id="fef-Qm-kac"/>
+                <constraint firstItem="Do4-HY-lYR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="pNj-Dq-AQk"/>
+                <constraint firstItem="XJ0-HG-bZF" firstAttribute="top" secondItem="Do4-HY-lYR" secondAttribute="bottom" constant="7" id="r3e-Kn-7gu"/>
+                <constraint firstItem="Do4-HY-lYR" firstAttribute="top" secondItem="jMS-Dn-AqD" secondAttribute="bottom" constant="15" id="zGn-q9-7Ou"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="114" y="165.5"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>

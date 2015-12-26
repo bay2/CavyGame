@@ -1,0 +1,165 @@
+/* 
+  Localizable.strings
+  CavyGame
+
+  Created by longjining on 15/7/9.
+  Copyright (c) 2015年 com.lvwenhan. All rights reserved.
+*/
+
+main_leftview_title_down="Download";
+main_leftview_title_mygame="Games";
+main_leftview_title_sysmsg="Notifications";
+main_leftview_title_feedback="Feedback";
+main_leftview_title_setting="Settings";
+main_leftview_title_about="About";
+main_leftview_not_login="Login";
+feedbackview_text_feedback="Your feedback will help us to be better and stronger, thank you!(3-200 letters)";
+contactText="Email address/Mobile number";
+feedbackview_text_contact="We will reply to your suggestions.";
+feedbackveiw_text_feedback_prompt="Please enter your suggestions.";
+feedbackveiw_text_contact_prompt="Invalid contact format";
+loginView_username_txt="Mobile number/Email address";
+loginView_password_txt="Password";
+loginView_password2_txt="Re-enter password";
+registerView_phonenum_txt="Mobile number";
+emailText="Email address";
+commit="Submit";
+
+menu_btn1 = "Recommend";
+menu_btn2 = "Ranking";
+menu_btn3 = "Category";
+menu_btn4 = "Specials";
+registerView_authCode_txt="CAPTCHA";
+
+loginView_title="Login";
+noticeView_title="Notifications";
+noticeView_newplayer_title="Beginner's Guide";
+registerView_title="Sign Up";
+gender_man="Male";
+gender_woman="Female";
+usercenterView_logout_btn="Logout";
+usercenterView_save_btn="Save";
+gender="Gender";
+birthday="Birthday";
+local="Location";
+downtime=" Downloads";
+searchGame="Search";
+
+download_title="Download";
+pause="Pause";
+downcontinue="Proceed";
+down="Download";
+install_fail="Install Failed";
+install="Install";
+update_Btn1Title2="Not now";
+update_Btn2Title="Update";
+downlist_empty="No download tasks";
+download_continute="Proceed";
+downloaded="Downloaded";
+downloading="Downloading";
+network_err="Network is not available";
+download_finished="Downloaded, installable";
+download_failed="Download failed, please retry";
+download_again="Retry";
+download_update="Update";
+download_waitting="Preparing";
+download_isPause="Paused";
+download_update_tip="New version available";
+alert_Location_Title="Tips";
+alert_Location_cancelButtonTitle="OK";
+downCount = "Downloads";
+gameIDIsEmpty="Server data error";
+
+reviewplaceholder="Comment here(3-200 letters)";
+sendBtn="Send";
+alert_review_msg="Comment length must be 3-200 letters";
+dopActWxFriends="Moments";
+dopActWechat="Friends";
+shareDopTitle="Share to";
+canal_Title="Cancel";
+downWx="WeChat is not installed";
+
+update_Btn1Title1="Quit";
+update_Btn1Title2="Not now";
+update_Btn2Title="Update";
+update_title="Update";
+
+login_loginerr="Account or password error";
+login_enter_passwd="Please enter password";
+login_enter_username="Please enter username";
+login_enter_username_error="Invalid format, please enter correct Email/Mobile number";
+emailBarBtn="Email";
+FoundPasswd="Password Retrieval";
+
+second=" sec";
+register_phone_err="Please enter mobile number";
+register_phone_err2="Please enter correct mobile number";
+register_auth_code="Please enter CAPTCHA";
+register_email_err="Please enter correct Email";
+register_email_nil="Please enter Email";
+register_passwd_num_err="Password must be at least 6-digits";
+sendCode="CAPTCHA";
+net_err="Network is not available";
+foundpasswd_err="Inconsistent passwords";
+LeftView_nikeLabel="Login";
+loginsavepwd_label="Save password";
+protocolBtn="CavyTech Service Agreement";
+phoneBarItem="Mobile";
+allBtn="Show All";
+
+SDRefreshViewRefreshingStateText = "Loading...";
+SDRefreshViewLoadMoreingStateText = "Loading...";
+SDRefreshViewWillRefreshStateText = "Release to refresh...";
+SDRefreshViewWillLoadMoreStateText = "Release to refresh...";
+SDRefreshViewWillRefreshNomalStateText = "Pull to refresh...";
+SDRefreshViewWillLoadMoreNomalStateText = "Pull to refresh...";
+SDRefreshViewLastTime = "Last update: ";
+set_cell_title_1="Download Reminder";
+set_cell_title_2="Auto Installation";
+set_cell_info_1="Remind me when there is no WiFi";
+set_cell_info_2="Install the game automatically after download";
+deleteText = "Delete";
+usercenter_photo1="Choose a photo";
+usercenter_photo2="Take a photo";
+cancel_text="Cancel";
+send_photo="Uploading";
+send_userinfo="Uploading";
+login_view_btn="Login";
+login_foundpwd_label="Forgot password？";
+regLabel1="I have read and accept ";
+registerBtn="Sign Up";
+finishBtn="Finished";
+usercenter_title1="Avatar";
+usercenter_title2="Nickname";
+usercenter_title3="Gender";
+usercenter_title4="Birthday";
+usercenter_title5="Location";
+usercenter="Profile";
+aboutTitle1="Customer Service Number";
+aboutTitle2="QQ Group";
+aboutTitle3="WeChat";
+aboutTitle4="Official Website";
+
+appinfo_title1="Introduction";
+appinfo_title2="Screenshot";
+appinfo_title3="Game Info";
+appinfo_title4="Developer";
+appinfo_title5="Category";
+appinfo_title6="Update";
+appinfo_title7="Version";
+appinfo_title8="Comments";
+appinfo_title9="Details";
+
+reviewBtn="Comment";
+
+
+alert_Wifi_Title="Reminder";
+alert_Wifi_msg="There is no WiFi, do you want to proceed?";
+alert_Wifi_cancelButtonTitle="Cancel";
+alert_Wifi_continuButtonTitle="Proceed";
+
+alert_Location_okButtonTitle="OK";
+
+alert_Location_ButtonViewTitle="View";
+alert_Location_ButtonDismissTitle="Dismiss";
+alert_Location_APNs_Title="Cavy Notification";

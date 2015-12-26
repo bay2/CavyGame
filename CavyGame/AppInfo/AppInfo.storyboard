@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <scenes>
+        <!--应用详情-->
+        <scene sceneID="SU6-cX-Jzc">
+            <objects>
+                <viewController storyboardIdentifier="AppInfoView" id="Q1p-j3-Vw5" customClass="AppInfoViewController" customModule="CavyGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CVt-Ll-1xO"/>
+                        <viewControllerLayoutGuide type="bottom" id="8Vl-ca-deu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kia-z7-jbI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="frp-yg-pFM">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q4j-VY-I8H" customClass="GameInfoDownloadBtn" customModule="CavyGame" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="551" width="600" height="49"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.33725490200000002" green="0.54117647059999996" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="4Od-7J-69i"/>
+                                </constraints>
+                                <state key="normal" title="下载">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onClickDown:" destination="Q1p-j3-Vw5" eventType="touchUpInside" id="o90-M8-ExK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="frp-yg-pFM" firstAttribute="top" secondItem="kia-z7-jbI" secondAttribute="top" id="AGH-i6-Sta"/>
+                            <constraint firstItem="Q4j-VY-I8H" firstAttribute="leading" secondItem="kia-z7-jbI" secondAttribute="leading" id="BpO-RV-fem"/>
+                            <constraint firstAttribute="bottom" secondItem="frp-yg-pFM" secondAttribute="bottom" constant="49" id="Pdu-3p-Zv7"/>
+                            <constraint firstAttribute="bottom" secondItem="Q4j-VY-I8H" secondAttribute="bottom" id="Rmq-EY-Xzu"/>
+                            <constraint firstAttribute="trailing" secondItem="frp-yg-pFM" secondAttribute="trailing" id="V7t-mZ-r4g"/>
+                            <constraint firstAttribute="trailing" secondItem="Q4j-VY-I8H" secondAttribute="trailing" id="gnk-Ua-DCd"/>
+                            <constraint firstItem="frp-yg-pFM" firstAttribute="leading" secondItem="kia-z7-jbI" secondAttribute="leading" id="sts-2n-oLm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="应用详情" id="5zi-ul-4xb">
+                        <barButtonItem key="leftBarButtonItem" image="icon_back" id="eZb-WT-tTq">
+                            <inset key="imageInsets" minX="-5" minY="0.0" maxX="-5" maxY="0.0"/>
+                            <connections>
+                                <action selector="onClickBack:" destination="Q1p-j3-Vw5" id="smp-Nc-sly"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="icon_share" id="2SU-Qa-R02">
+                            <connections>
+                                <action selector="shareGame:" destination="Q1p-j3-Vw5" id="dG0-4K-5UB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="down" destination="Q4j-VY-I8H" id="aHN-gI-hFI"/>
+                        <outlet property="gameInfoTableView" destination="frp-yg-pFM" id="SXs-ge-Dgb"/>
+                        <outlet property="shareBarBtn" destination="2SU-Qa-R02" id="RdV-El-RY1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U52-zj-zru" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1084" y="-192"/>
+        </scene>
+        <!--Big Image View Controller-->
+        <scene sceneID="mex-Do-uo6">
+            <objects>
+                <viewController storyboardIdentifier="BigImageViewController" id="nCu-sv-5O4" customClass="BigImageViewController" customModule="CavyGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vrR-If-Cnf"/>
+                        <viewControllerLayoutGuide type="bottom" id="6f0-Tb-fSn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dPY-Pk-cAE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1kw-fJ-An8">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="fMd-Ra-jIf">
+                            <connections>
+                                <action selector="onClickDone:" destination="nCu-sv-5O4" id="oGv-cn-lIk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A88-nn-QKL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1818" y="-192"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon_back" width="22" height="22"/>
+        <image name="icon_share" width="22" height="22"/>
+    </resources>
+</document>

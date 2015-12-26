@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--公告-->
+        <scene sceneID="Pn9-iM-wML">
+            <objects>
+                <viewController storyboardIdentifier="NoticeView" id="xdd-6d-Tma" customClass="NoticeViewController" customModule="CavyGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uXM-Wr-Za9"/>
+                        <viewControllerLayoutGuide type="bottom" id="FVo-I5-7gU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="taW-hs-sNp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="R93-Vx-GZk">
+                                <rect key="frame" x="0.0" y="4" width="600" height="596"/>
+                                <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="R93-Vx-GZk" firstAttribute="top" secondItem="taW-hs-sNp" secondAttribute="top" constant="4" id="0Bn-uR-Epb"/>
+                            <constraint firstItem="R93-Vx-GZk" firstAttribute="leading" secondItem="taW-hs-sNp" secondAttribute="leading" id="9lT-DU-hPY"/>
+                            <constraint firstAttribute="trailing" secondItem="R93-Vx-GZk" secondAttribute="trailing" id="cH3-DZ-2nr"/>
+                            <constraint firstAttribute="bottom" secondItem="R93-Vx-GZk" secondAttribute="bottom" id="mhN-L9-MXI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="公告" id="yKI-tu-Ycq">
+                        <barButtonItem key="leftBarButtonItem" image="icon_back" id="FIP-eh-EKI">
+                            <connections>
+                                <action selector="onClickBack:" destination="xdd-6d-Tma" id="V7e-hA-8zN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="noticeTableView" destination="R93-Vx-GZk" id="zfx-yj-fs3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZJZ-zl-TZL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="259" y="299"/>
+        </scene>
+        <!--Notice Detail View Controller-->
+        <scene sceneID="hLr-bT-4Qv">
+            <objects>
+                <viewController storyboardIdentifier="NoticeDetail" id="TWW-lr-qNB" customClass="NoticeDetailViewController" customModule="CavyGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JzZ-ee-GID"/>
+                        <viewControllerLayoutGuide type="bottom" id="krf-qH-qP4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fLR-xe-rWq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="60A-ZD-RIf">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="60A-ZD-RIf" firstAttribute="leading" secondItem="fLR-xe-rWq" secondAttribute="leading" id="GEu-13-rlk"/>
+                            <constraint firstAttribute="bottom" secondItem="60A-ZD-RIf" secondAttribute="bottom" id="MbD-ej-wdD"/>
+                            <constraint firstItem="60A-ZD-RIf" firstAttribute="top" secondItem="fLR-xe-rWq" secondAttribute="top" id="hY4-zG-vgd"/>
+                            <constraint firstAttribute="trailing" secondItem="60A-ZD-RIf" secondAttribute="trailing" id="iyr-9G-cX4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="NiE-lO-3ej">
+                        <barButtonItem key="leftBarButtonItem" image="icon_back" id="pL6-SC-rva">
+                            <connections>
+                                <action selector="onClickBack:" destination="TWW-lr-qNB" id="g1x-Ko-jlp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="web" destination="60A-ZD-RIf" id="I4N-pd-gZg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GUe-5n-lDT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="876" y="299"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon_back" width="22" height="22"/>
+    </resources>
+</document>

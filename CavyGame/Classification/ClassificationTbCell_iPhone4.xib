@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="ClassificationTbCellid" selectionStyle="default" indentationWidth="10" rowHeight="289" id="KGk-i7-Jjw" customClass="ClassificationTbCell" customModule="CavyGame" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="224"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="热门游戏" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xF-5o-FEw">
+                        <rect key="frame" x="13" y="15" width="201" height="18"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_left_edit1" translatesAutoresizingMaskIntoConstraints="NO" id="cwj-1Z-84S">
+                        <rect key="frame" x="300" y="14" width="16" height="16"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="16" id="63j-7c-ayM"/>
+                            <constraint firstAttribute="height" constant="16" id="mhl-b0-plq"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fIS-Od-58c">
+                        <rect key="frame" x="0.0" y="214" width="320" height="1"/>
+                        <animations/>
+                        <color key="backgroundColor" red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b3h-Bl-jo9">
+                        <rect key="frame" x="0.0" y="215" width="320" height="9"/>
+                        <animations/>
+                        <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3b0-R9-v9A">
+                        <rect key="frame" x="245" y="8" width="56" height="28"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="FUj-WY-sgl"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                        <state key="normal" title="显示全部">
+                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="FUj-WY-sgl"/>
+                            </mask>
+                        </variation>
+                        <connections>
+                            <action selector="showAll:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="b8D-H9-xt0"/>
+                        </connections>
+                    </button>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FZW-Xt-tZW">
+                        <rect key="frame" x="0.0" y="38" width="320" height="177"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </subviews>
+                <animations/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="cwj-1Z-84S" secondAttribute="trailing" constant="-4" id="7Xi-qJ-rfP"/>
+                    <constraint firstItem="cwj-1Z-84S" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="XMh-gc-Nrg"/>
+                    <constraint firstItem="3b0-R9-v9A" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="eEe-CK-BiQ"/>
+                    <constraint firstItem="cwj-1Z-84S" firstAttribute="centerY" secondItem="3b0-R9-v9A" secondAttribute="centerY" id="jOo-BH-MwO"/>
+                    <constraint firstItem="cwj-1Z-84S" firstAttribute="leading" secondItem="3b0-R9-v9A" secondAttribute="trailing" constant="-1" id="zNr-Im-WJw"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="allBtn" destination="3b0-R9-v9A" id="IzP-my-G6Z"/>
+                <outlet property="gameClassName" destination="1xF-5o-FEw" id="4yA-DS-Lx4"/>
+                <outlet property="itemView" destination="FZW-Xt-tZW" id="TnM-nX-gfR"/>
+            </connections>
+            <point key="canvasLocation" x="313" y="156.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon_left_edit1" width="24" height="24"/>
+    </resources>
+</document>

@@ -1,0 +1,27 @@
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "17S-eO-DBm"; */
+"17S-eO-DBm.text" = "Title";
+
+/* Class = "UILabel"; text = "HOME"; ObjectID = "2Ae-CP-23M"; */
+"2Ae-CP-23M.text" = "HOME";
+
+/* Class = "UILabel"; text = "HOME"; ObjectID = "9J5-aG-t1H"; */
+"9J5-aG-t1H.text" = "HOME";
+
+/* Class = "UIButton"; normalTitle = "设置"; ObjectID = "QaN-1y-kzm"; */
+"QaN-1y-kzm.normalTitle" = "设置";
+
+/* Class = "UINavigationItem"; title = "联系人"; ObjectID = "Qdx-AC-1tx"; */
+"Qdx-AC-1tx.title" = "联系人";
+
+/* Class = "UILabel"; text = "未登录"; ObjectID = "UpG-Mn-46R"; */
+"UpG-Mn-46R.text" = "未登录";
+
+/* Class = "UILabel"; text = "联系人"; ObjectID = "e6M-nl-GyN"; */
+"e6M-nl-GyN.text" = "联系人";
+
+/* Class = "UIButton"; normalTitle = "夜间"; ObjectID = "flu-G5-rio"; */
+"flu-G5-rio.normalTitle" = "夜间";
+
+/* Class = "UIViewController"; title = "联系人"; ObjectID = "nBo-Ya-JBc"; */
+"nBo-Ya-JBc.title" = "联系人";

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="GameTitleTableViewCell" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="GameTitleTableViewCell" customModule="SwiftCavyGame" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="85"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="600" height="85"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="忍者炸弹" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJd-uk-0Pk">
+                        <rect key="frame" x="81" y="9" width="60" height="18"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="忍者炸弹" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Psn-Ir-8Yt">
+                        <rect key="frame" x="81" y="34" width="48" height="12"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="忍者炸弹" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwK-yf-DN2">
+                        <rect key="frame" x="81" y="54" width="511" height="15"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JtJ-tb-fMg">
+                        <rect key="frame" x="10" y="9" width="65" height="65"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="JtJ-tb-fMg" secondAttribute="height" multiplier="1:1" id="PRs-Ha-gVv"/>
+                            <constraint firstAttribute="width" constant="65" id="uXZ-GW-J4P"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <animations/>
+                <color key="backgroundColor" red="0.18823529411764706" green="0.40000000000000002" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="yJd-uk-0Pk" firstAttribute="leading" secondItem="Psn-Ir-8Yt" secondAttribute="leading" id="CPU-hP-88I"/>
+                    <constraint firstItem="Psn-Ir-8Yt" firstAttribute="top" secondItem="yJd-uk-0Pk" secondAttribute="bottom" constant="7" id="QR3-vT-Qho"/>
+                    <constraint firstItem="nwK-yf-DN2" firstAttribute="top" secondItem="Psn-Ir-8Yt" secondAttribute="bottom" constant="8" id="cOo-bQ-7yg"/>
+                    <constraint firstItem="yJd-uk-0Pk" firstAttribute="leading" secondItem="JtJ-tb-fMg" secondAttribute="trailing" constant="6" id="kCQ-SV-2ea"/>
+                    <constraint firstItem="JtJ-tb-fMg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="r2e-eS-YUX"/>
+                    <constraint firstItem="yJd-uk-0Pk" firstAttribute="top" secondItem="JtJ-tb-fMg" secondAttribute="top" id="rty-ZI-qKB"/>
+                    <constraint firstItem="JtJ-tb-fMg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="sId-OO-nTC"/>
+                    <constraint firstItem="nwK-yf-DN2" firstAttribute="leading" secondItem="yJd-uk-0Pk" secondAttribute="leading" id="tL1-lr-oYl"/>
+                    <constraint firstAttribute="trailing" secondItem="nwK-yf-DN2" secondAttribute="trailing" constant="8" id="u1J-dq-fGY"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="titleGameInfo" destination="nwK-yf-DN2" id="3M7-QK-5s1"/>
+                <outlet property="titleGameName" destination="yJd-uk-0Pk" id="qzz-Xj-NKK"/>
+                <outlet property="titleGameSize" destination="Psn-Ir-8Yt" id="jUQ-02-SJU"/>
+                <outlet property="titleImage" destination="JtJ-tb-fMg" id="eKE-xQ-Nzn"/>
+            </connections>
+            <point key="canvasLocation" x="245" y="252.5"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="GameInfoTableViewCellid" selectionStyle="default" indentationWidth="10" rowHeight="129" id="KGk-i7-Jjw" customClass="GameInfoTableViewCell" customModule="CavyGame" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="572" height="94"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PQn-6B-GRg">
+                        <rect key="frame" x="10" y="10" width="65" height="65"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="PQn-6B-GRg" secondAttribute="height" multiplier="1:1" id="CW3-Hm-7cf"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="豚鼠游戏" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ZF-uE-3bh">
+                        <rect key="frame" x="85" y="8" width="60" height="19"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="19" id="YZJ-L7-6Yq"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="g" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDd-Yb-i4t">
+                        <rect key="frame" x="85" y="47" width="479" height="28"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="mvb-Yj-j7U"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="mvb-Yj-j7U"/>
+                            </mask>
+                        </variation>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SLb-qK-JXq">
+                        <rect key="frame" x="0.0" y="85" width="572" height="1"/>
+                        <animations/>
+                        <color key="backgroundColor" red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="txg-X8-AIU"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qPA-40-Q0B">
+                        <rect key="frame" x="0.0" y="86" width="572" height="8"/>
+                        <animations/>
+                        <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="8" id="J9p-vk-q7w"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pkB-Rv-6cK">
+                        <rect key="frame" x="85" y="27" width="30" height="16"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="JXG-Rd-Jif"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEs-SI-V2b" customClass="PrefectureDownloadWithProgressButton" customModule="CavyGame" customModuleProvider="target">
+                        <rect key="frame" x="504" y="12" width="60" height="25"/>
+                        <animations/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="L7c-oY-Hgn"/>
+                            <constraint firstAttribute="height" constant="25" id="YT1-ki-RUU"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <state key="normal" title="下载">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="onClickDown:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Z1l-JO-Y9D"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstItem="6ZF-uE-3bh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="1MH-Ke-qjY"/>
+                    <constraint firstItem="HDd-Yb-i4t" firstAttribute="bottom" secondItem="PQn-6B-GRg" secondAttribute="bottom" id="2a3-Oj-aVb"/>
+                    <constraint firstItem="HDd-Yb-i4t" firstAttribute="top" secondItem="pkB-Rv-6cK" secondAttribute="bottom" constant="4" id="B6X-qg-dm9"/>
+                    <constraint firstAttribute="bottom" secondItem="qPA-40-Q0B" secondAttribute="bottom" id="BIh-1M-8ts"/>
+                    <constraint firstItem="pkB-Rv-6cK" firstAttribute="top" secondItem="6ZF-uE-3bh" secondAttribute="bottom" id="C1P-ft-GTd"/>
+                    <constraint firstItem="qPA-40-Q0B" firstAttribute="top" secondItem="SLb-qK-JXq" secondAttribute="bottom" id="FGI-wz-eY0"/>
+                    <constraint firstItem="HEs-SI-V2b" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="K95-iM-Ckx"/>
+                    <constraint firstItem="SLb-qK-JXq" firstAttribute="top" secondItem="PQn-6B-GRg" secondAttribute="bottom" constant="10" id="LHg-SC-ckf"/>
+                    <constraint firstAttribute="trailing" secondItem="HEs-SI-V2b" secondAttribute="trailing" constant="8" id="Qfe-Xw-qCt"/>
+                    <constraint firstItem="PQn-6B-GRg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="RWc-m3-cag"/>
+                    <constraint firstItem="SLb-qK-JXq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Ytc-ps-tkY"/>
+                    <constraint firstItem="SLb-qK-JXq" firstAttribute="top" secondItem="HDd-Yb-i4t" secondAttribute="bottom" id="g1Z-59-Mls"/>
+                    <constraint firstAttribute="trailing" secondItem="qPA-40-Q0B" secondAttribute="trailing" id="hJf-wj-S2h"/>
+                    <constraint firstItem="6ZF-uE-3bh" firstAttribute="leading" secondItem="PQn-6B-GRg" secondAttribute="trailing" constant="10" id="i1V-iD-VjA"/>
+                    <constraint firstItem="HDd-Yb-i4t" firstAttribute="trailing" secondItem="HEs-SI-V2b" secondAttribute="trailing" id="nh9-QA-H12"/>
+                    <constraint firstItem="pkB-Rv-6cK" firstAttribute="leading" secondItem="6ZF-uE-3bh" secondAttribute="leading" id="uer-Hg-Rc8"/>
+                    <constraint firstItem="PQn-6B-GRg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="vBq-3Y-JAW"/>
+                    <constraint firstAttribute="trailing" secondItem="SLb-qK-JXq" secondAttribute="trailing" id="wdi-iC-fQs"/>
+                    <constraint firstItem="HDd-Yb-i4t" firstAttribute="leading" secondItem="6ZF-uE-3bh" secondAttribute="leading" id="xq8-zZ-zHZ"/>
+                    <constraint firstItem="qPA-40-Q0B" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="yoH-I2-PgM"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="g1Z-59-Mls"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="detail" destination="HDd-Yb-i4t" id="qHq-ui-XOA"/>
+                <outlet property="down" destination="HEs-SI-V2b" id="aAK-0N-QxM"/>
+                <outlet property="halvingline" destination="SLb-qK-JXq" id="1Hd-II-GCf"/>
+                <outlet property="icon" destination="PQn-6B-GRg" id="Dcs-vZ-VKn"/>
+                <outlet property="sizeAndDownCnt" destination="pkB-Rv-6cK" id="Yv1-5F-1e1"/>
+                <outlet property="title" destination="6ZF-uE-3bh" id="yHX-Cj-UZf"/>
+            </connections>
+            <point key="canvasLocation" x="579" y="232"/>
+        </tableViewCell>
+    </objects>
+</document>

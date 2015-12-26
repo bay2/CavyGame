@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="174" id="KGk-i7-Jjw" customClass="GameAppInfoTableViewCell" customModule="SwiftCavyGame" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="174"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开发商：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kiC-1v-PqE">
+                        <rect key="frame" x="12" y="43" width="52" height="13"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="13" id="3Na-8P-jns"/>
+                            <constraint firstAttribute="height" constant="16" id="50N-7f-Zkq"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="t97-5N-bhr"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="13"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="50N-7f-Zkq"/>
+                                <exclude reference="t97-5N-bhr"/>
+                            </mask>
+                        </variation>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="游戏类型：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUU-AH-Npf">
+                        <rect key="frame" x="12" y="67" width="65" height="13"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="13" id="6VM-HU-JjE"/>
+                            <constraint firstAttribute="height" constant="16" id="9Cj-Do-evU"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="13"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="9Cj-Do-evU"/>
+                            </mask>
+                        </variation>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更新日期：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOW-sW-H5j">
+                        <rect key="frame" x="12" y="91" width="65" height="13"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="13" id="WhU-hc-WKc"/>
+                            <constraint firstAttribute="height" constant="16" id="n7l-Ov-yfh"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="13"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="n7l-Ov-yfh"/>
+                            </mask>
+                        </variation>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="版本信息：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBb-58-xq2">
+                        <rect key="frame" x="12" y="115" width="65" height="13"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="13" id="LV8-MI-1JF"/>
+                            <constraint firstAttribute="height" constant="13" id="fJz-Sb-Gsl"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="13"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="LV8-MI-1JF"/>
+                            </mask>
+                        </variation>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="豚鼠科技" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gai-K8-oFy">
+                        <rect key="frame" x="75" y="43" width="52" height="13"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="13" id="Y1j-w5-ANY"/>
+                            <constraint firstAttribute="height" constant="16" id="k4x-B4-MTe"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="13"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="k4x-B4-MTe"/>
+                            </mask>
+                        </variation>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="热门游戏" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwd-sb-Xg2">
+                        <rect key="frame" x="76" y="67" width="52" height="13"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="13" id="FJ2-e1-A6E"/>
+                            <constraint firstAttribute="height" constant="16" id="cUB-hE-DHm"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="13"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="cUB-hE-DHm"/>
+                            </mask>
+                        </variation>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015-07-22 14:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKs-nb-bFh">
+                        <rect key="frame" x="76" y="91" width="120" height="13"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="M6n-WE-N5X"/>
+                            <constraint firstAttribute="height" constant="13" id="Wme-tT-ma6"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="13"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="M6n-WE-N5X"/>
+                            </mask>
+                        </variation>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="maM-ad-Icb">
+                        <rect key="frame" x="0.0" y="164" width="600" height="9"/>
+                        <animations/>
+                        <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="9" id="nqj-Wu-Ncc"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="信息" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ea1-kr-seC">
+                        <rect key="frame" x="12" y="13" width="32" height="16"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="bb2-UF-GzK"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="16"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aTg-Ik-Pth">
+                        <rect key="frame" x="0.0" y="164" width="600" height="1"/>
+                        <animations/>
+                        <color key="backgroundColor" red="0.77254901960784317" green="0.77254901960784317" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="hb5-IT-UJr"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewB-3H-Ksl">
+                        <rect key="frame" x="76" y="115" width="516" height="13"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="13" id="HED-ff-PId"/>
+                            <constraint firstAttribute="height" constant="13" id="vb8-fB-lcB"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="13"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="vb8-fB-lcB"/>
+                            </mask>
+                        </variation>
+                    </label>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstItem="ewB-3H-Ksl" firstAttribute="top" secondItem="qBb-58-xq2" secondAttribute="top" id="0f7-gf-Olx"/>
+                    <constraint firstItem="qBb-58-xq2" firstAttribute="top" secondItem="vOW-sW-H5j" secondAttribute="bottom" constant="11" id="1ku-nz-WpN"/>
+                    <constraint firstItem="qBb-58-xq2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="5Ra-UR-MQj"/>
+                    <constraint firstItem="kiC-1v-PqE" firstAttribute="top" secondItem="gai-K8-oFy" secondAttribute="top" id="7B3-5h-ZWh"/>
+                    <constraint firstItem="vOW-sW-H5j" firstAttribute="top" secondItem="JKs-nb-bFh" secondAttribute="top" id="8Lw-GY-ZVJ"/>
+                    <constraint firstItem="vOW-sW-H5j" firstAttribute="leading" secondItem="qUU-AH-Npf" secondAttribute="leading" id="8XT-sV-NBD"/>
+                    <constraint firstItem="kiC-1v-PqE" firstAttribute="top" secondItem="Ea1-kr-seC" secondAttribute="bottom" constant="14" id="DaU-9J-4QI"/>
+                    <constraint firstItem="aTg-Ik-Pth" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="GUb-An-war"/>
+                    <constraint firstItem="Ea1-kr-seC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="Jf1-nW-Vb8"/>
+                    <constraint firstItem="fwd-sb-Xg2" firstAttribute="leading" secondItem="gai-K8-oFy" secondAttribute="leading" constant="1" id="KAT-Zh-CPb"/>
+                    <constraint firstItem="fwd-sb-Xg2" firstAttribute="leading" secondItem="JKs-nb-bFh" secondAttribute="leading" id="MgN-CM-teu"/>
+                    <constraint firstAttribute="bottom" secondItem="aTg-Ik-Pth" secondAttribute="bottom" constant="9" id="PSO-Ae-hxf"/>
+                    <constraint firstItem="ewB-3H-Ksl" firstAttribute="leading" secondItem="JKs-nb-bFh" secondAttribute="leading" id="Pr2-jW-UyP"/>
+                    <constraint firstItem="fwd-sb-Xg2" firstAttribute="top" secondItem="qUU-AH-Npf" secondAttribute="top" id="SSB-0l-vsU"/>
+                    <constraint firstItem="maM-ad-Icb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="VXc-Qy-URR"/>
+                    <constraint firstAttribute="trailing" secondItem="aTg-Ik-Pth" secondAttribute="trailing" id="Wpa-R1-BrM"/>
+                    <constraint firstAttribute="bottom" secondItem="maM-ad-Icb" secondAttribute="bottom" id="cr4-Sy-lIb"/>
+                    <constraint firstItem="gai-K8-oFy" firstAttribute="leading" secondItem="kiC-1v-PqE" secondAttribute="trailing" constant="11" id="eGE-VY-yNE"/>
+                    <constraint firstItem="kiC-1v-PqE" firstAttribute="leading" secondItem="Ea1-kr-seC" secondAttribute="leading" id="fzA-HO-BvQ"/>
+                    <constraint firstAttribute="trailing" secondItem="ewB-3H-Ksl" secondAttribute="trailing" constant="8" id="hlI-yL-tin"/>
+                    <constraint firstItem="qUU-AH-Npf" firstAttribute="top" secondItem="kiC-1v-PqE" secondAttribute="bottom" constant="11" id="lXS-ta-3Yp"/>
+                    <constraint firstItem="qUU-AH-Npf" firstAttribute="leading" secondItem="kiC-1v-PqE" secondAttribute="leading" id="nyI-z4-Zxx"/>
+                    <constraint firstItem="Ea1-kr-seC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13.5" id="oPk-tk-oyV"/>
+                    <constraint firstAttribute="trailing" secondItem="maM-ad-Icb" secondAttribute="trailing" id="rIo-0u-Dvk"/>
+                    <constraint firstItem="vOW-sW-H5j" firstAttribute="top" secondItem="qUU-AH-Npf" secondAttribute="bottom" constant="11" id="xj7-8N-uVz"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="developersLable" destination="gai-K8-oFy" id="eRz-n5-sV7"/>
+                <outlet property="gametypeLable" destination="fwd-sb-Xg2" id="WwT-DR-1tP"/>
+                <outlet property="title1" destination="Ea1-kr-seC" id="zYz-7h-MKM"/>
+                <outlet property="title2" destination="kiC-1v-PqE" id="vkS-VQ-Ugj"/>
+                <outlet property="title3" destination="qUU-AH-Npf" id="HxG-jq-Ke3"/>
+                <outlet property="title4" destination="vOW-sW-H5j" id="WX7-DK-PvP"/>
+                <outlet property="title5" destination="qBb-58-xq2" id="oh8-cD-EmN"/>
+                <outlet property="updateTimeLable" destination="JKs-nb-bFh" id="feT-Es-1Kz"/>
+                <outlet property="versionLable" destination="ewB-3H-Ksl" id="DAK-kC-RT5"/>
+            </connections>
+            <point key="canvasLocation" x="329" y="247"/>
+        </tableViewCell>
+    </objects>
+</document>
