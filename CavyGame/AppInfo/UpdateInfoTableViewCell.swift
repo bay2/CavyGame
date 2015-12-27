@@ -10,11 +10,13 @@ import UIKit
 
 class UpdateInfoTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var titleLab: UILabel!
     @IBOutlet weak var updateTimeLab: UILabel!
     @IBOutlet weak var updateInfoLab: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        titleLab.text = Common.LocalizedStringForKey("app_latest_update")
         // Initialization code
     }
 

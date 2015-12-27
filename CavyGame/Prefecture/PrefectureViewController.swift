@@ -11,8 +11,6 @@ import UIKit
 class PrefectureViewController: UIViewController {
 
     @IBOutlet weak var pefectureTable: UITableView!
-    var refreshHeader : SDRefreshHeaderView!
-    var refreshFoot : SDRefreshFooterView!
     
     var pagenum = 1
     let pagesize = 10
@@ -29,8 +27,10 @@ class PrefectureViewController: UIViewController {
         pefectureTable.separatorStyle = UITableViewCellSeparatorStyle.None
         pefectureTable.backgroundColor = Common.tableBackColor
         
+        MJRefreshAdapter.setupRefreshFoot(pefectureTable, target: self, action: "loadData")
+        MJRefreshAdapter.setupRefreshHeader(pefectureTable, target: self, action: "loadData")
+        
         loadData()
-        setupRefreshHeader()
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "nofityShowLeftView:", name: Common.notifyShowLeftView, object: nil)
         
@@ -48,86 +48,12 @@ class PrefectureViewController: UIViewController {
         pefectureTable.allowsSelection = false
         pefectureTable.scrollEnabled = false
     }
-    
-    func setupRefreshHeader(){
-        refreshHeader = SDRefreshHeaderView();
-        
-        // 默认是在navigationController环境下，如果不是在此环境下，请设置 refreshHeader.isEffectedByNavigationController = NO;
-        //  refreshHeader.isEffectedByNavigationController = false
-        refreshHeader.addToScrollView(pefectureTable)
-        
-        refreshHeader.addTarget(self, refreshAction:"headerRefresh")
-    }
-    
-    func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), closure)
-    }
-    
-    /**
-    下拉刷新
-    */
-    func headerRefresh(){
-        
-        // 重新请求详情
-        
-        pagenum = 1
-        loadData()
-        
-        self.delay(2.0, closure: { () -> () in
-            
-            self.refreshHeader.endRefreshing()
-        })
-        
-    }
-    
-    func setupRefreshFoot(){
-        refreshFoot = SDRefreshFooterView();
-        
-        // 默认是在navigationController环境下，如果不是在此环境下，请设置 refreshHeader.isEffectedByNavigationController = NO;
-        //  refreshFoot.isEffectedByNavigationController = false
-        refreshFoot.addToScrollView(self.pefectureTable)
-        
-        refreshFoot.addTarget(self, refreshAction:"footerRefresh")
-    }
-    
-    func footerRefresh(){
-        
-        // 加载更多评论
-        
-        pagenum++
-        loadData()
-        
-        self.delay(2.0, closure: { () -> () in
-            
-            if nil != self.refreshFoot {
-                self.refreshFoot.endRefreshing()
-            }
-            
-            
-        })
-        
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func removeFooterRefresh(){
-        
-        if nil != refreshFoot {
-            
-            self.refreshFoot.scrollView.contentInset = UIEdgeInsetsZero;
-            self.refreshFoot.removeFromSuperview()
-            
-            self.refreshFoot = nil
-        }
-    }
     
     func loadData() {
         
@@ -135,60 +61,47 @@ class PrefectureViewController: UIViewController {
             
             FVCustomAlertView.shareInstance.showDefaultCustomAlertOnView(self.view, withTitle: Common.LocalizedStringForKey("net_err"), delayTime: Common.alertDelayTime)
             
-            if self.refreshHeader != nil {
-                self.refreshHeader!.endRefreshing()
-            }
-            
-            if self.refreshFoot != nil {
-                
-                self.refreshFoot!.endRefreshing()
-                
-            }
-            
+            self.pefectureTable.mj_footer?.endRefreshing()
+            self.pefectureTable.mj_header?.endRefreshing()
+
             return
         }
         
         HttpHelper<PrefectureInfoRet>.prefectureInfo(pagenum, pagesize: pagesize) { (result) -> () in
             
-            if let code = result?.code {
+            dispatch_async(dispatch_get_main_queue(), {
                 
-                if code != "1001" {
+                if let code = result?.code {
+                
+                    if code != "1001" {
                     
-                    return
+                        self.pefectureTable.mj_footer?.endRefreshing()
+                        self.pefectureTable.mj_header?.endRefreshing()
+                        return
+                    }
                 }
-            }
             
-            if let data = result?.data?.preList {
-                
-                if self.pagenum > 1 {
+                if let data = result?.data?.preList {
                     
-                    self.prefectureList = self.prefectureList + data
-                    
-                    if 0 == data.count {
-                        
-                        self.removeFooterRefresh()
-                        
+                    if data.count < self.pagesize {
+                        self.pefectureTable.mj_footer = nil
                     }
-                    
-                } else {
-                    
-                    self.prefectureList = data
-                    
-                    if data.count >= self.pagesize {
-                    
-                        self.setupRefreshFoot()
-                    
-                    }
-                    
-                    
-                }
                 
-                dispatch_async(dispatch_get_main_queue(), {
+                    if self.pagenum > 1 {
                     
+                        self.prefectureList = self.prefectureList + data
+                        self.pagenum++
+                    
+                    } else {
+                        self.prefectureList = data
+                    }
+
                     self.pefectureTable.reloadData()
+                    self.pefectureTable.mj_footer?.endRefreshing()
+                    self.pefectureTable.mj_header?.endRefreshing()
                 
-                })
-            }
+                }
+            })
         }
     }
 

@@ -145,6 +145,7 @@ appinfo_title6="更新日期：";
 appinfo_title7="版本信息：";
 appinfo_title8="游戏评论";
 appinfo_title9="应用详情";
+app_latest_update="本次更新";
 
 reviewBtn="立即评论";
 

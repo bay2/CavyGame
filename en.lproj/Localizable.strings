@@ -149,6 +149,7 @@ appinfo_title6="Update";
 appinfo_title7="Version";
 appinfo_title8="Comments";
 appinfo_title9="Details";
+app_latest_update="Latest Update";
 
 reviewBtn="Comment";
 

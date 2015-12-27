@@ -56,6 +56,7 @@
             </tableViewCellContentView>
             <animations/>
             <connections>
+                <outlet property="titleLab" destination="q6x-mM-NSu" id="PvK-FR-VFq"/>
                 <outlet property="updateInfoLab" destination="saA-XM-syA" id="zrP-dU-FMA"/>
                 <outlet property="updateTimeLab" destination="mEM-Jc-PKL" id="1xd-bY-Ljs"/>
             </connections>

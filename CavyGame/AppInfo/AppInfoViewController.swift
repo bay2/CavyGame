@@ -25,8 +25,6 @@ class AppInfoViewController: UIViewController, UIAlertViewDelegate {
     var itemInfo : GameSubInfo = GameSubInfo()
     var dimBackground = UIView(frame: CGRectMake(0, 0, Common.screenWidth, Common.screenHeight))
     
-    var refreshHeader : SDRefreshHeaderView? = nil
-    var refreshFoot : SDRefreshFooterView? = nil
     var pageNum = 1
     let pagesize = 10
     var alvertView : UIAlertView?
@@ -68,6 +66,10 @@ class AppInfoViewController: UIViewController, UIAlertViewDelegate {
         
         gameInfoTableView.registerNib(UINib(nibName: "UpdateInfoTableViewCell", bundle: nil), forCellReuseIdentifier: "UpdateInfoTableViewCell")
         
+        // 下拉刷新上拉加载更多
+        MJRefreshAdapter.setupRefreshHeader(gameInfoTableView, target: self, action: "loadGameDetailsData")
+        MJRefreshAdapter.setupRefreshFoot(gameInfoTableView, target: self, action: "loadGameReviewInfo")
+        
         //加载游戏详情信息
         loadGameDetailsData()
         
@@ -89,77 +91,9 @@ class AppInfoViewController: UIViewController, UIAlertViewDelegate {
         
         self.view.removeGestureRecognizer(Common.rootViewController.tapGesture)
         
-//        gameInfoTableView
-        
         initDownBtn()
         // Do any additional setup after loading the view.
         
-        // 下拉刷新上拉加载更多
-        setupRefreshHeader()
-        setupRefreshFoot()
-    }
-    
-    func setupRefreshHeader(){
-        
-        refreshHeader = SDRefreshHeaderView();
-        
-        // 默认是在navigationController环境下，如果不是在此环境下，请设置 refreshHeader.isEffectedByNavigationController = NO;
-      //  refreshHeader.isEffectedByNavigationController = false
-        refreshHeader!.addToScrollView(self.gameInfoTableView)
-        
-        refreshHeader!.addTarget(self, refreshAction:"headerRefresh")
-    }
-    
-    func headerRefresh(){
-        
-        // 重新请求详情
-        
-        pageNum = 1
-        loadGameReviewInfo()
-        loadGameDetailsData()
-        
-        self.delay(2.0, closure: { () -> () in
-            
-            self.refreshHeader!.endRefreshing()
-        })
-        
-        if nil == refreshFoot {
-            setupRefreshFoot()
-        }
-        
-    }
-    
-    func setupRefreshFoot(){
-        refreshFoot = SDRefreshFooterView();
-        
-        // 默认是在navigationController环境下，如果不是在此环境下，请设置 refreshHeader.isEffectedByNavigationController = NO;
-      //  refreshFoot.isEffectedByNavigationController = false
-        refreshFoot!.addToScrollView(self.gameInfoTableView)
-        
-        refreshFoot!.addTarget(self, refreshAction:"footerRefresh")
-    }
-    
-    func footerRefresh(){
-        
-        // 加载更多评论
-        
-        loadGameReviewInfo()
-        
-        self.delay(2.0, closure: { () -> () in
-            if self.refreshFoot != nil{
-                self.refreshFoot!.endRefreshing()
-            }
-        })
-        
-    }
-    
-    func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), closure)
     }
     
     /**
@@ -419,41 +353,40 @@ class AppInfoViewController: UIViewController, UIAlertViewDelegate {
             
             FVCustomAlertView.shareInstance.showDefaultCustomAlertOnView(Common.rootViewController.view, withTitle: Common.LocalizedStringForKey("net_err"), delayTime: Common.alertDelayTime)
             
-            if nil != self.refreshHeader {
-                
-                self.refreshHeader!.endRefreshing()
-                
-            }
+            self.gameInfoTableView.mj_header.endRefreshing()
             
             return
         }
         
         HttpHelper<GameDetailsInfo>.getGameDetailsInfo(gameId, completionHandlerRet: { (result) -> () in
             
-            if "1001" != result?.code {
-                
-                return
-                
-            }
-            
-            self.gameDetailsInfo = result!.data!
-            
-            // 强制重新赋值
-            if self.itemInfo.gameid == nil{
-                // "gamename", "version","downurl","pageName","filesize","icon","gameid"
-                self.itemInfo.gamename = self.gameDetailsInfo?.gamename
-                self.itemInfo.version = self.gameDetailsInfo?.gameid
-                self.itemInfo.downurl = self.gameDetailsInfo?.downurl
-                self.itemInfo.plisturl = self.gameDetailsInfo?.plisturl
-                self.itemInfo.packpagename = self.gameDetailsInfo?.pageName
-                self.itemInfo.filesize = self.gameDetailsInfo?.filesize
-                self.itemInfo.icon = self.gameDetailsInfo?.icon
-                self.itemInfo.gameid = self.gameDetailsInfo?.gameid
-                
-                self.down.itemInfo = self.itemInfo
-            }
-            
             dispatch_async(dispatch_get_main_queue(),{
+                
+                if "1001" != result?.code {
+                
+                    self.gameInfoTableView.mj_header.endRefreshing()
+                    return
+                
+                }
+            
+                self.gameDetailsInfo = result!.data!
+            
+                // 强制重新赋值
+                if self.itemInfo.gameid == nil{
+                    // "gamename", "version","downurl","pageName","filesize","icon","gameid"
+                    self.itemInfo.gamename = self.gameDetailsInfo?.gamename
+                    self.itemInfo.version = self.gameDetailsInfo?.gameid
+                    self.itemInfo.downurl = self.gameDetailsInfo?.downurl
+                    self.itemInfo.plisturl = self.gameDetailsInfo?.plisturl
+                    self.itemInfo.packpagename = self.gameDetailsInfo?.pageName
+                    self.itemInfo.filesize = self.gameDetailsInfo?.filesize
+                    self.itemInfo.icon = self.gameDetailsInfo?.icon
+                    self.itemInfo.gameid = self.gameDetailsInfo?.gameid
+                
+                    self.down.itemInfo = self.itemInfo
+                }
+            
+                self.gameInfoTableView.mj_header.endRefreshing()
                 self.gameInfoTableView.reloadData()
                 self.down.enabled = true
                 
@@ -475,71 +408,49 @@ class AppInfoViewController: UIViewController, UIAlertViewDelegate {
             
             FVCustomAlertView.shareInstance.showDefaultCustomAlertOnView(Common.rootViewController.view, withTitle: Common.LocalizedStringForKey("net_err"), delayTime: Common.alertDelayTime)
             
-            if nil != self.refreshFoot {
-                
-                self.refreshFoot!.endRefreshing()
-                
-            }
-            
-            if self.refreshFoot != nil{
-                self.refreshFoot!.endRefreshing()
-            }
+            self.gameInfoTableView.mj_footer.endRefreshing()
             
             return
         }
         
         HttpHelper<ReViewInfoRet>.getReViewInfo(gameId, pagenum: pageNum, pagesize: pagesize) { (result) -> () in
             
-            if "1001" != result?.code {
+            dispatch_async(dispatch_get_main_queue(),{
                 
-                return
-            }
-            
-            if nil == result!.data {
-                return
-            }
-            
-            if result!.data?.count <  self.pagesize {
+                if "1001" != result?.code {
                 
-                self.removeFooterRefresh()
-                
-            }
-            
-            if self.pageNum > 1 {
-                
-                self.reviewArray = self.reviewArray + result!.data!
-                self.pageNum++
-                
-            } else {
-                
-                if result?.pageNum == nil || result?.pageNum! < self.pageNum {
-                    self.removeFooterRefresh()
+                    self.gameInfoTableView.mj_footer?.endRefreshing()
                     return
                 }
-                
-                self.reviewArray = result!.data!
-                self.pageNum++
-            }
             
-            dispatch_async(dispatch_get_main_queue(),{
+                if nil == result!.data {
+                    self.gameInfoTableView.mj_footer?.endRefreshing()
+                    return
+                }
+            
+            
+                if self.pageNum > 1 {
+                
+                    self.reviewArray = self.reviewArray + result!.data!
+                    self.pageNum++
+                
+                } else {
+                
+                    self.reviewArray = result!.data!
+                    self.pageNum++
+                }
+            
+                self.gameInfoTableView.mj_footer?.endRefreshing()
+                
+                if result!.data?.count <  self.pagesize {
+                
+                    self.gameInfoTableView.mj_footer = nil
+                }
+                
                 self.gameInfoTableView.reloadData()
             })
             
         }
-    }
-    
-    func removeFooterRefresh(){
-        
-        if nil != refreshFoot {
-            if self.pageNum != 1{
-                // 如果为空数据不需要调整位置
-                self.refreshFoot!.scrollView.contentInset = UIEdgeInsetsZero;
-            }
-            self.refreshFoot!.removeFromSuperview()
-            
-            self.refreshFoot = nil
-        }
-
     }
 
     /**
@@ -832,58 +743,6 @@ extension AppInfoViewController : UITableViewDelegate, UITableViewDataSource {
         }
         
     }
-   
-    
-//    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        
-//        switch indexPath.row {
-//            
-//        case 0 :
-//            
-////            if .UIDeviceResolution_iPhoneRetina4 == resolution() {
-////                
-////                return 85
-////                
-////            }
-//            if let cell = titleCell {
-//                
-//                return titleCell!.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height + 1;
-//            }
-//            
-//            return 0
-////            
-////            return 111
-//            
-//        case 1 :
-//            
-//            if 0 != gameDetailsInfo!.verimage.count {
-//                return 210 + 66
-//            }
-//            
-//            return ((self.view.frame.width - 24) / (7 / 3)) + 66
-//            
-//        case 2 :
-//            
-//            if nil == gameDetailsInfo {
-//                return 0
-//            }
-//            
-//            return getRecommendCellHight(gameDetailsInfo!.gamedetial!)
-//            
-//            
-//        case 3 :
-//            return 174
-//            
-//        case 4 :
-//            return 106
-//            
-//        default :
-//            
-//            return getContentCellHight(reviewArray[indexPath.row - 5].com_content!)
-//        }
-//    }
- 
-    
 }
 
 // MARK: - 评论扩展

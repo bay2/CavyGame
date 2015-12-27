@@ -16,8 +16,6 @@ class RankingVC : GameListBaseTableViewController {
 
         btn_blogPage = Common.notifyAdd_Page2
 
-        setupRefreshHeader()
-        setupRefreshFoot()
         loadData()
         
         setSpaceHeadView()
@@ -25,6 +23,9 @@ class RankingVC : GameListBaseTableViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "nofityShowLeftView:", name: Common.notifyShowLeftView, object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "nofityShowHomeView:", name: Common.notifyShowHomeView, object: nil)
+        
+        MJRefreshAdapter.setupRefreshFoot(self.tableView, target: self, action: "footerRefresh")
+        MJRefreshAdapter.setupRefreshHeader(self.tableView, target: self, action: "headerRefresh")
 
     }
     
@@ -34,17 +35,7 @@ class RankingVC : GameListBaseTableViewController {
         if true == Down_Interface().isNotReachable() {
             
             FVCustomAlertView.shareInstance.showDefaultCustomAlertOnView(self.view, withTitle: Common.LocalizedStringForKey("net_err"), delayTime: Common.alertDelayTime)
-            
-            if self.refreshHeader != nil {
-                self.refreshHeader!.endRefreshing()
-            }
-            
-            
             return
-        }
-        
-        if self.refreshFoot == nil{
-            setupRefreshFoot()
         }
         
         super.loadData()
@@ -75,8 +66,7 @@ class RankingVC : GameListBaseTableViewController {
         super.footerRefresh()
     }
     
-    override
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
 
         
         var cell = super.tableView(tableView, cellForRowAtIndexPath: indexPath)  as! GameInfoTableViewCell
