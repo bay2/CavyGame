@@ -2414,7 +2414,7 @@
 				);
 				MACH_O_TYPE = mh_execute;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_SWIFT_FLAGS = "-D DEBUG";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_MODULE_NAME = "Swift$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = CavyGame;
 				PROVISIONING_PROFILE = "";
