@@ -33,7 +33,6 @@ registerView_authCode_txt="CAPTCHA";
 
 loginView_title="Login";
 noticeView_title="Notifications";
-noticeView_newplayer_title="Beginner's Guide";
 registerView_title="Sign Up";
 gender_man="Male";
 gender_woman="Female";
