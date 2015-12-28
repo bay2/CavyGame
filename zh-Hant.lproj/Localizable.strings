@@ -1,0 +1,160 @@
+/*
+ Localizable.strings
+ CavyGame
+ 
+ Created by longjining on 15/7/9.
+ Copyright (c) 2015年 com.lvwenhan. All rights reserved.
+ */
+
+main_leftview_title_down="下載";
+main_leftview_title_sysmsg="公告";
+main_leftview_title_feedback="建議";
+main_leftview_title_setting="設置";
+main_leftview_title_about="關於";
+main_leftview_not_login="未登錄";
+feedbackview_text_feedback="不好的地方請告訴我們，好的地方請告訴你的朋友。豚鼠將努力為你變好變強大！(3-200字)";
+contactText="請留下你的電子信箱或手機號，以便我們回復";
+feedbackveiw_text_feedback_prompt="請填寫建議";
+feedbackveiw_text_contact_prompt="聯繫方式格式不正確";
+loginView_username_txt="請輸入手機號/電子信箱";
+loginView_password_txt="請輸入密碼";
+loginView_password2_txt="請再次輸入密碼";
+registerView_phonenum_txt="請輸入手機號碼";
+emailText="請輸入電子信箱";
+commit="提交";
+
+menu_btn1 = "推薦";
+menu_btn2 = "排行";
+menu_btn3 = "分類";
+menu_btn4 = "專區";
+registerView_authCode_txt="請輸入驗證碼";
+
+loginView_title="登錄";
+noticeView_title="公告";
+registerView_title="註冊";
+gender_man="男";
+gender_woman="女";
+usercenterView_logout_btn="退出登錄";
+usercenterView_save_btn="保存";
+downtime="次下載";
+searchGame="尋找遊戲";
+
+download_title="下載";
+pause="暫停";
+downcontinue="繼續";
+down="下載";
+install_fail="安裝失敗";
+install="安裝";
+update_Btn1Title2="暫不更新";
+update_Btn2Title="更新";
+downlist_empty="暫時沒有下載任務";
+download_continute="繼續下載";
+downloaded="已下載";
+downloading="下載中";
+download_start="開始下載";
+network_err="連線錯誤，請檢查你的網路";
+download_finished="已下載，可安裝";
+download_failed="下載失敗請重試";
+download_again="重試";
+download_update="更新";
+download_waitting="等待中";
+download_isPause="已暫停";
+download_update_tip="有新版本更新";
+alert_Location_Title="提示";
+alert_Location_cancelButtonTitle="確定";
+downCount = "下載次數";
+gameIDIsEmpty="伺服器資料異常";
+
+reviewplaceholder="我來說兩句(3-200字)";
+sendBtn="發送";
+alert_review_msg="評論長度應為3-200字";
+dopActWxFriends="朋友圈";
+dopActWechat="微信朋友";
+shareDopTitle="分享到";
+canal_Title="取消";
+downWx="未安裝微信";
+
+update_Btn1Title1="退出";
+update_Btn1Title2="暫不更新";
+update_Btn2Title="立即更新";
+update_title="版本更新";
+
+login_loginerr="帳號或密碼錯誤";
+login_enter_passwd="請輸入密碼";
+login_enter_username="請輸入用戶名";
+login_enter_username_error="格式不正確，請輸入正確的電子信箱/手機號碼";
+emailBarBtn="電子信箱";
+FoundPasswd="找回密碼";
+
+second="秒";
+register_phone_err="請輸入手機號碼";
+register_phone_err2="請輸入正確的手機號碼";
+register_rand_err="請先閱讀《豚鼠科技服務協定》";
+register_auth_code="驗證碼不能為空白";
+register_email_err="請輸入正確的電子信箱";
+register_email_nil="電子信箱不能為空白";
+register_passwd_num_err="密碼不足6位元數";
+sendCode="獲取驗證碼";
+net_err="連線錯誤，請檢查你的網路";
+foundpasswd_err="兩次輸入的密碼不一致";
+LeftView_nikeLabel="未登錄";
+loginsavepwd_label="記住密碼";
+protocolBtn="《豚鼠科技服務協定》";
+phoneBarItem="手機";
+allBtn="顯示全部";
+
+SDRefreshViewRefreshingStateText = "載入中...";
+SDRefreshViewLoadMoreingStateText = "載入中...";
+SDRefreshViewWillRefreshStateText = "鬆開即可刷新...";
+SDRefreshViewWillLoadMoreStateText = "鬆開即可刷新...";
+SDRefreshViewWillRefreshNomalStateText = "下拉可以刷新...";
+SDRefreshViewWillLoadMoreNomalStateText = "上拉可以刷新...";
+SDRefreshViewLastTime = "最後更新：";
+set_cell_title_1="下載提示";
+set_cell_title_2="自動開啟安裝";
+set_cell_info_1="非wifi網路下載提示";
+set_cell_info_2="遊戲下載完成後自動安裝";
+deleteText = "刪 除";
+usercenter_photo1="從手機相簿中選擇";
+usercenter_photo2="拍照";
+cancel_text="取消";
+send_photo="正在上傳使用者圖像";
+send_userinfo="正在上傳";
+login_view_btn="立即登錄";
+login_foundpwd_label="忘記密碼？";
+regLabel1="我已經閱讀並接受";
+registerBtn="立即註冊";
+finishBtn="完成";
+usercenter_title1="使用者圖像";
+usercenter_title2="暱稱";
+usercenter_title3="性別";
+usercenter_title4="生日";
+usercenter_title5="地區";
+usercenter="個人資訊";
+aboutTitle1="客服電話";
+aboutTitle2="QQ粉絲群";
+aboutTitle3="官方微信號";
+aboutTitle4="進入官網";
+
+appinfo_title1="遊戲簡介";
+appinfo_title2="遊戲截圖";
+appinfo_title3="遊戲資訊";
+appinfo_title4="開發商：";
+appinfo_title5="遊戲類型：";
+appinfo_title6="更新日期：";
+appinfo_title7="版本資訊：";
+appinfo_title8="遊戲評論";
+appinfo_title9="應用程式詳情";
+
+reviewBtn="立即評論";
+
+
+alert_Wifi_Title="非wifi提示";
+alert_Wifi_msg="目前為非wifi環境，是否繼續下載？";
+alert_Wifi_cancelButtonTitle="取消";
+alert_Wifi_continuButtonTitle="繼續";
+
+alert_Location_okButtonTitle="確定";
+alert_Location_ButtonViewTitle="點擊查看";
+alert_Location_ButtonDismissTitle="忽略";
+alert_Location_APNs_Title="豚鼠通告";

@@ -366,6 +366,10 @@
 		91482ABC1BA19B1A00FE3CB1 /* AppInfo_iPhone4.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = AppInfo_iPhone4.storyboard; path = AppInfo/AppInfo_iPhone4.storyboard; sourceTree = "<group>"; };
 		91482ABF1BA1ABE900FE3CB1 /* Prefecture_iPhone4.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Prefecture_iPhone4.storyboard; sourceTree = "<group>"; };
 		91482AC41BA1AF0900FE3CB1 /* UserCenter_iPhone4.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = UserCenter_iPhone4.storyboard; path = UserCenter/UserCenter_iPhone4.storyboard; sourceTree = "<group>"; };
+		9149650E1C30C621005383BF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9149650F1C30C621005383BF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		914965101C30D76E005383BF /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		914965111C30D76E005383BF /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		9153A6B71B97DB9D00956465 /* Prefecture.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Prefecture.storyboard; sourceTree = "<group>"; };
 		9153A6B91B97DBCE00956465 /* PrefectureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefectureViewController.swift; sourceTree = "<group>"; };
 		9153A6BB1B981D5000956465 /* PrefectureTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefectureTableViewCell.swift; sourceTree = "<group>"; };
@@ -1838,6 +1842,8 @@
 				en,
 				Base,
 				"zh-Hans",
+				ja,
+				"zh-Hant",
 			);
 			mainGroup = 465932FC1AD7F60700969878;
 			productRefGroup = 465933061AD7F60700969878 /* Products */;
@@ -2214,6 +2220,8 @@
 				91E115271B71A274006631AE /* en */,
 				91E115291B71A275006631AE /* Base */,
 				91E1152A1B71A276006631AE /* zh-Hans */,
+				9149650E1C30C621005383BF /* ja */,
+				914965101C30D76E005383BF /* zh-Hant */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -2224,6 +2232,8 @@
 				91E115311B71A636006631AE /* en */,
 				91E115331B71A637006631AE /* Base */,
 				91E115341B71A638006631AE /* zh-Hans */,
+				9149650F1C30C621005383BF /* ja */,
+				914965111C30D76E005383BF /* zh-Hant */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
