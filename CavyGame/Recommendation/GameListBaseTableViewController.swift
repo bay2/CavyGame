@@ -59,7 +59,9 @@ class GameListBaseTableViewController: RefreshTableViewController {
         HttpHelper<GameListInfo>.getRankList (currPage, pagesize : pageSize, completionHandlerRet:{(result) -> () in
             
             if result == nil{
-                
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.tableView.mj_header?.endRefreshing()
+                })
             }else{
                 
                 let gamesInfo : GameListInfo = result!
@@ -75,6 +77,7 @@ class GameListBaseTableViewController: RefreshTableViewController {
                 self.currPage++
                 dispatch_async(dispatch_get_main_queue(), {
                     self.tableView.reloadData()
+                    self.tableView.mj_header?.endRefreshing()
                 })
                 self.updateVersion()
                 NSNotificationCenter.defaultCenter().postNotificationName(Common.notifyLoadFinishData, object:nil)
@@ -87,7 +90,7 @@ class GameListBaseTableViewController: RefreshTableViewController {
         if true == Down_Interface().isNotReachable() {
             
             FVCustomAlertView.shareInstance.showDefaultCustomAlertOnView(self.view, withTitle: Common.LocalizedStringForKey("net_err"), delayTime: Common.alertDelayTime)
-            
+            self.tableView.mj_footer?.endRefreshing()
             return
         }
         
@@ -102,7 +105,10 @@ class GameListBaseTableViewController: RefreshTableViewController {
                 }else{
                     
                     if gamesInfo.pageNum == nil || gamesInfo.pageNum < self.currPage {
-                        self.removeFooterRefresh()
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.tableView.mj_footer?.endRefreshing()
+                            self.removeFooterRefresh()
+                        })
                         return
                     }
                     
@@ -115,6 +121,7 @@ class GameListBaseTableViewController: RefreshTableViewController {
                 }
                 self.currPage++
                 dispatch_async(dispatch_get_main_queue(), {
+                    self.tableView.mj_footer?.endRefreshing()
                     self.tableView.reloadData()
                 })
             }

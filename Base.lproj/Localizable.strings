@@ -6,6 +6,7 @@
  Copyright (c) 2015年 com.lvwenhan. All rights reserved.
  */
 
+
 main_leftview_title_down="Download";
 main_leftview_title_mygame="Games";
 main_leftview_title_sysmsg="Notifications";
@@ -13,7 +14,7 @@ main_leftview_title_feedback="Feedback";
 main_leftview_title_setting="Settings";
 main_leftview_title_about="About";
 main_leftview_not_login="Login";
-feedbackview_text_feedback="Your feedback will help us to be better and stronger, thank you!";
+feedbackview_text_feedback="Your feedback will help us to be better and stronger, thank you!(3-200 letters)";
 contactText="Email address/Mobile number";
 feedbackview_text_contact="We will reply to your suggestions.";
 feedbackveiw_text_feedback_prompt="Please enter your suggestions.";
@@ -33,7 +34,6 @@ registerView_authCode_txt="CAPTCHA";
 
 loginView_title="Login";
 noticeView_title="Notifications";
-noticeView_newplayer_title="Beginner's Guide";
 registerView_title="Sign Up";
 gender_man="Male";
 gender_woman="Female";
@@ -115,7 +115,7 @@ SDRefreshViewWillRefreshNomalStateText = "Pull to refresh...";
 SDRefreshViewWillLoadMoreNomalStateText = "Pull to refresh...";
 SDRefreshViewLastTime = "Last update: ";
 set_cell_title_1="Download Reminder";
-set_cell_title_2="Auto Installtion";
+set_cell_title_2="Auto Installation";
 set_cell_info_1="Remind me when there is no WiFi";
 set_cell_info_2="Install the game automatically after download";
 deleteText = "Delete";
@@ -149,6 +149,7 @@ appinfo_title6="Update";
 appinfo_title7="Version";
 appinfo_title8="Comments";
 appinfo_title9="Details";
+app_latest_update="Latest Update";
 
 reviewBtn="Comment";
 
@@ -159,6 +160,7 @@ alert_Wifi_cancelButtonTitle="Cancel";
 alert_Wifi_continuButtonTitle="Proceed";
 
 alert_Location_okButtonTitle="OK";
+
 alert_Location_ButtonViewTitle="View";
 alert_Location_ButtonDismissTitle="Dismiss";
 alert_Location_APNs_Title="Cavy Notification";

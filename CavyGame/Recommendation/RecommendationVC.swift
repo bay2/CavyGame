@@ -32,7 +32,7 @@ class RecommendationVC : GameListBaseTableViewController {
         
         initHeardView()
 
-        setupRefreshHeader()
+        MJRefreshAdapter.setupRefreshHeader(self.tableView, target: self, action: "headerRefresh")
         loadData()
 
         if (8.0 <= Common.getDeviceIosVersion()) {
@@ -170,11 +170,7 @@ class RecommendationVC : GameListBaseTableViewController {
         if true == Down_Interface().isNotReachable() {
             
             FVCustomAlertView.shareInstance.showDefaultCustomAlertOnView(self.view, withTitle: Common.LocalizedStringForKey("net_err"), delayTime: Common.alertDelayTime)
-            
-            if self.refreshHeader != nil {
-                self.refreshHeader.endRefreshing()
-            }
-            
+            self.tableView.mj_header.endRefreshing()
             return
         }
         
@@ -205,6 +201,8 @@ class RecommendationVC : GameListBaseTableViewController {
                     if weakSelf!.gameListInfo.recomd2Game[1].images != nil {
                         weakSelf!.headerbanner2Btn2.sd_setImageWithURL(NSURL(string: self.gameListInfo.recomd2Game[1].images!), forState: UIControlState.Normal, placeholderImage: UIImage(named: self.defultImg))
                     }
+                    
+                    self.tableView.mj_header.endRefreshing()
                 })
                 weakSelf!.updateVersion()
                 NSNotificationCenter.defaultCenter().postNotificationName(Common.notifyLoadFinishData, object:nil)

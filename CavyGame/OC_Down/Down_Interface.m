@@ -19,7 +19,13 @@
 #import "Reachability.h"
 #import "SwiftCavyGame-swift.h"
 
-#define DOWNCNTURL @"http://cavytest.tunshu.com/appIndex/index?ac=downcount&gameid="
+#if DEBUG
+#define DOWNCNTURL @"http://115.28.144.243/gamecenter/appIndex/index?ac=downcount&gameid="
+#else
+#define DOWNCNTURL @"http://game.tunshu.com/appIndex/index?ac=downcount&gameid="
+#endif
+
+
 
 #define SETTING_KEY_DOWNINWIFI @"wifi"
 
@@ -245,6 +251,7 @@ static Reachability *rchaBility = nil;
     
     
     NSString *downURL = [[NSString alloc] initWithFormat:@"%@%@&phonetype=ios&devinfo=%@&serial=%@", DOWNCNTURL, gameid, identifier, deviceInfo];
+    downURL = [downURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setURL:[NSURL URLWithString:downURL]];

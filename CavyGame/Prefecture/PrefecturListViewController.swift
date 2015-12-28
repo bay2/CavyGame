@@ -17,8 +17,6 @@ class PrefecturListViewController: UIViewController {
     var prefectureListData : PrefectureListData = PrefectureListData()
     var styleType : String?
     var style : Dictionary<String, AnyObject>?
-    var refreshHeader : SDRefreshHeaderView?
-    var refreshFoot : SDRefreshFooterView?
     var prefectureInfoHight : CGFloat = 10
 
     override func viewDidLoad() {
@@ -39,11 +37,12 @@ class PrefecturListViewController: UIViewController {
         
         view.backgroundColor = UIColor(hexString: backgroundColor)
         
+        MJRefreshAdapter.setupRefreshHeader(prefectureListTable, target: self, action: "loadGameListData")
+        MJRefreshAdapter.setupRefreshFoot(prefectureListTable, target: self, action: "loadGameListData")
+        
         loadGameListData()
         
         loadBackgroundColor()
-        
-        setupRefreshHeader()
         
     }
     
@@ -57,65 +56,6 @@ class PrefecturListViewController: UIViewController {
         var backgroundColor = viewStyle["background"] as! String
         
         prefectureListTable.backgroundColor = UIColor(hexString: backgroundColor)
-        
-    }
-    
-    func setupRefreshHeader(){
-        refreshHeader = SDRefreshHeaderView();
-        
-        // 默认是在navigationController环境下，如果不是在此环境下，请设置 refreshHeader.isEffectedByNavigationController = NO;
-        //  refreshHeader.isEffectedByNavigationController = false
-        refreshHeader!.addToScrollView(prefectureListTable)
-        
-        refreshHeader!.addTarget(self, refreshAction:"headerRefresh")
-    }
-    
-    func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), closure)
-    }
-    
-    /**
-    下拉刷新
-    */
-    func headerRefresh(){
-        
-        // 重新请求详情
-        
-        pagenum = 1
-        
-        loadGameListData()
-        
-        self.delay(2.0, closure: { () -> () in
-            
-            self.refreshHeader!.endRefreshing()
-        })
-        
-        
-        
-    }
-    
-    func setupRefreshFoot(){
-        refreshFoot = SDRefreshFooterView();
-        
-
-        refreshFoot!.addToScrollView(self.prefectureListTable)
-        
-        refreshFoot!.addTarget(self, refreshAction:"footerRefresh")
-    }
-    
-    func footerRefresh(){
-        
-        loadGameListData()
-        
-        self.delay(2.0, closure: { () -> () in
-            
-            self.refreshFoot!.endRefreshing()
-        })
         
     }
     
@@ -153,13 +93,8 @@ class PrefecturListViewController: UIViewController {
             
             FVCustomAlertView.shareInstance.showDefaultCustomAlertOnView(Common.rootViewController.view, withTitle: Common.LocalizedStringForKey("net_err"), delayTime: Common.alertDelayTime)
             
-            if self.refreshHeader != nil {
-                self.refreshHeader!.endRefreshing()
-            }
-            
-            if self.refreshFoot != nil {
-                self.refreshFoot!.endRefreshing()
-            }
+            self.prefectureListTable.mj_header?.endRefreshing()
+            self.prefectureListTable.mj_footer?.endRefreshing()
             
             return
         }
@@ -167,59 +102,48 @@ class PrefecturListViewController: UIViewController {
         if true == Down_Interface().isNotReachable() {
             
             FVCustomAlertView.shareInstance.showDefaultCustomAlertOnView(Common.rootViewController.view, withTitle: Common.LocalizedStringForKey("net_err"), delayTime: Common.alertDelayTime)
-            self.refreshFoot!.endRefreshing()
+            self.prefectureListTable.mj_header?.endRefreshing()
+            self.prefectureListTable.mj_footer?.endRefreshing()
             return
         }
         
         HttpHelper<PrefectureListRet>.prefectureList(preId, pagenum: pagenum, pagesize: pagesize) { (result) -> () in
             
-            if let code = result?.code {
+            dispatch_async(dispatch_get_main_queue(), {
                 
-                if "1001" != code {
-                    return
-                }
-            }
-            
-            if let data = result?.data {
+                if let code = result?.code {
                 
-                if 1  == self.pagenum {
-                    
-                    self.prefectureListData = data
-                    
-                    if self.pagesize <= data.gamelist.count {
-                        
-                        dispatch_async(dispatch_get_main_queue(), {
-                            self.setupRefreshFoot()
-                        })
-                        
-                    }
-                    
-                    self.pagenum++
-                    
-                } else {
-                    
-                    if result?.data?.pageNum == nil || result?.data?.pageNum <= self.pagenum {
+                    if "1001" != code {
+                        self.prefectureListTable.mj_header?.endRefreshing()
+                        self.prefectureListTable.mj_footer?.endRefreshing()
                         return
                     }
-                    
+                }
+            
+                if let data = result?.data {
+                
+                
+                    if self.prefectureListData.gamelist.count < self.pagesize {
+                        self.prefectureListTable.mj_footer = nil
+                    }
+                
                     self.prefectureListData.bannerphone = data.bannerphone
                     self.prefectureListData.intro = data.intro
                     self.prefectureListData.style = data.style
                     self.prefectureListData.title = data.title
                     self.prefectureListData.gamelist =  self.prefectureListData.gamelist + data.gamelist
-                    
-                    self.pagenum++
-                    
-                    self.refreshFoot!.endRefreshing()
-                    
-                }
                 
-                dispatch_async(dispatch_get_main_queue(), {
+                    self.prefectureListTable.mj_header?.endRefreshing()
+                    self.prefectureListTable.mj_footer?.endRefreshing()
+                    self.prefectureListTable.mj_footer = nil
+                
+                    self.pagenum++
                     
                     self.prefectureListTable.reloadData()
                 
-                })
-            }
+                }
+                
+            })
             
         }
         

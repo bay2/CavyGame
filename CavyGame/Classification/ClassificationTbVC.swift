@@ -39,13 +39,13 @@ class ClassificationTbVC: RefreshTableViewController {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         setSpaceHeadView()
         
+        MJRefreshAdapter.setupRefreshHeader(self.tableView, target: self, action: "headerRefresh")
         loadData()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "nofityShowLeftView:", name: Common.notifyShowLeftView, object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "nofityShowHomeView:", name: Common.notifyShowHomeView, object: nil)
         
-        setupRefreshHeader()
     }
 
     override func headerRefresh(){
@@ -79,25 +79,22 @@ class ClassificationTbVC: RefreshTableViewController {
         if true == Down_Interface().isNotReachable() {
             
             FVCustomAlertView.shareInstance.showDefaultCustomAlertOnView(self.view, withTitle: Common.LocalizedStringForKey("net_err"), delayTime: Common.alertDelayTime)
-            
-            if nil != self.refreshHeader {
-                
-                self.refreshHeader!.endRefreshing()
-                
-            }
-            
+            self.tableView.mj_header.endRefreshing()
             return
         }
         
         HttpHelper<ClassificationInfo>.getClassInfo ({(result) -> () in
             
             if result == nil{
-                
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.tableView.mj_header.endRefreshing()
+                })
             }else{
                 self.classDataInfo = result!
                 
                 dispatch_async(dispatch_get_main_queue(), {
                     self.tableView.reloadData()
+                    self.tableView.mj_header.endRefreshing()
                 })
                 self.updateVersion()
                 NSNotificationCenter.defaultCenter().postNotificationName(Common.notifyLoadFinishData, object:nil)

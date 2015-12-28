@@ -10,7 +10,6 @@
 #import "WXApi.h"
 #import "HPTextViewInternal.h"
 #import "HPGrowingTextView.h"
-#import "SDRefresh.h"
 #import "DownloadManager.h"
 #import "UIImageView+NHLinearShadow.h"
 #import "ALActionSheetView.h"
@@ -22,3 +21,4 @@
 #import <TestinAgent/TestinAgent.h>
 #import "APService.h"
 #import "UITableView+FDTemplateLayoutCell.h"
+#import "MJRefresh.h"

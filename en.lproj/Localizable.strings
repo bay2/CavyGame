@@ -33,7 +33,6 @@ registerView_authCode_txt="CAPTCHA";
 
 loginView_title="Login";
 noticeView_title="Notifications";
-noticeView_newplayer_title="Beginner's Guide";
 registerView_title="Sign Up";
 gender_man="Male";
 gender_woman="Female";
@@ -149,6 +148,7 @@ appinfo_title6="Update";
 appinfo_title7="Version";
 appinfo_title8="Comments";
 appinfo_title9="Details";
+app_latest_update="Latest Update";
 
 reviewBtn="Comment";
 

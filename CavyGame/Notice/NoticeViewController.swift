@@ -13,8 +13,6 @@ class NoticeViewController: UIViewController  {
     @IBOutlet weak var noticeTableView: UITableView!
     var sysMsg : Array<NoticeData> = Array<NoticeData>()
     
-    var refreshHeader : SDRefreshHeaderView!
-    var refreshFoot : SDRefreshFooterView!
     var pagenum = 1
     let pagesize = 10
     
@@ -31,11 +29,11 @@ class NoticeViewController: UIViewController  {
         
         noticeTableView.registerNibExt("NoticeTableViewCell", identifier: "Notice")
         
-        loadData()
+        MJRefreshAdapter.setupRefreshFoot(noticeTableView, target: self, action: "loadData")
+        MJRefreshAdapter.setupRefreshHeader(noticeTableView, target: self, action: "loadData")
         
-        setupRefreshHeader()
-        setupRefreshFoot()
-
+        loadData()
+    
         // Do any additional setup after loading the view.
     }
     
@@ -51,127 +49,46 @@ class NoticeViewController: UIViewController  {
             
             FVCustomAlertView.shareInstance.showDefaultCustomAlertOnView(Common.rootViewController.view, withTitle: Common.LocalizedStringForKey("net_err"), delayTime: Common.alertDelayTime)
             
-            if refreshHeader != nil {
-                self.refreshHeader!.endRefreshing()
-            }
-            
-            if refreshFoot != nil {
-                self.refreshFoot!.endRefreshing()
-            }
+            self.noticeTableView.mj_footer?.endRefreshing()
+            self.noticeTableView.mj_header?.endRefreshing()
             
             return
         }
         
         HttpHelper<SysAnnouncement>.getNoticeInfo(pagenum, pagesize: pagesize){ (result) -> () in
             
-            if nil == result!.code {
-                return
-            }
+            dispatch_async(dispatch_get_main_queue(), {
             
-            if "1001" == result!.code! {
-                
-                if 0 == result!.data?.count {
-                    self.removeFooterRefresh()
+                if nil == result!.code {
+                    self.noticeTableView.mj_footer?.endRefreshing()
+                    self.noticeTableView.mj_header?.endRefreshing()
+                    return
                 }
+            
+                if "1001" == result!.code! {
                 
-                dispatch_async(dispatch_get_main_queue(), {
-                    
-                    if self.pagenum > 1 {
-                        
-                        self.sysMsg = self.sysMsg + result!.data!
-                        
-                        
-                    } else {
-                        
-                        self.sysMsg = result!.data!
-                        
+                    if self.pagesize > result!.data?.count {
+                        self.noticeTableView.mj_footer = nil
                     }
-                    
+                
+                    if self.pagenum > 1 {
+                        self.sysMsg = self.sysMsg + result!.data!
+                        self.pagenum++
+                    } else {
+                        self.sysMsg = result!.data!
+                    }
+
                     self.noticeTableView.reloadData()
                     
-                })
-            }
+                }
+                
+                self.noticeTableView.mj_footer?.endRefreshing()
+                self.noticeTableView.mj_header?.endRefreshing()
             
+            })
         }
         
     }
-    
-    
-    func setupRefreshHeader(){
-        refreshHeader = SDRefreshHeaderView();
-        
-        // 默认是在navigationController环境下，如果不是在此环境下，请设置 refreshHeader.isEffectedByNavigationController = NO;
-        //  refreshHeader.isEffectedByNavigationController = false
-        refreshHeader.addToScrollView(self.noticeTableView)
-        
-        refreshHeader.addTarget(self, refreshAction:"headerRefresh")
-    }
-    
-    func headerRefresh(){
-        
-        // 重新请求详情
-        
-        pagenum = 1
-        
-        loadData()
-        
-        self.delay(2.0, closure: { () -> () in
-            
-            self.refreshHeader.endRefreshing()
-        })
-        
-        if nil == refreshFoot {
-            setupRefreshFoot()
-        }
-        
-    }
-    
-    func setupRefreshFoot(){
-        refreshFoot = SDRefreshFooterView();
-        
-        // 默认是在navigationController环境下，如果不是在此环境下，请设置 refreshHeader.isEffectedByNavigationController = NO;
-        //  refreshFoot.isEffectedByNavigationController = false
-        refreshFoot.addToScrollView(self.noticeTableView)
-        
-        refreshFoot.addTarget(self, refreshAction:"footerRefresh")
-    }
-    
-    func footerRefresh(){
-        
-        // 加载更多评论
-        
-        pagenum++
-        loadData()
-        
-        self.delay(2.0, closure: { () -> () in
-            
-            self.refreshFoot.endRefreshing()
-        })
-        
-        
-        
-    }
-    
-    func removeFooterRefresh(){
-        
-        if nil != refreshFoot {
-            
-            self.refreshFoot.scrollView.contentInset = UIEdgeInsetsZero;
-            self.refreshFoot.removeFromSuperview()
-            
-            self.refreshFoot = nil
-        }
-    }
-    
-    func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), closure)
-    }
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

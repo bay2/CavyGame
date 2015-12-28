@@ -1,0 +1,5 @@
+/* Localized versions of Info.plist keys */
+
+CFBundleDisplayName="CavyGame";
+NSLocationAlwaysUsageDescription="Depending on your geographic location information, providing accurate service";
+NSLocationWhenInUseUsageDescription="If not possible, you can not use the relevant functional orientation maps";

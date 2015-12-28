@@ -20,9 +20,11 @@ class ClassAllItemTbVC: GameListBaseTableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        setupRefreshHeader()
         
+        MJRefreshAdapter.setupRefreshHeader(self.tableView, target: self, action: "headerRefresh")
+        MJRefreshAdapter.setupRefreshFoot(self.tableView, target: self, action: "footerRefresh")
         loadData()
+        
         
         self.view.backgroundColor = Common.tableBackColor
     }
@@ -38,33 +40,20 @@ class ClassAllItemTbVC: GameListBaseTableViewController {
         if true == Down_Interface().isNotReachable() {
             
             FVCustomAlertView.shareInstance.showDefaultCustomAlertOnView(self.view, withTitle: Common.LocalizedStringForKey("net_err"), delayTime: Common.alertDelayTime)
-            
-            if nil != self.refreshFoot {
-                
-                self.refreshFoot!.endRefreshing()
-                
-            }
-            
+            self.tableView.mj_header?.endRefreshing()
             return
         }
-        
-
         
         self.currPage = 1
         HttpHelper<GameListInfo>.getClassAllItemList(gameClassID, pagenum: self.currPage, pagesize: pageSize) { (result) -> () in
             
             if result == nil{
-                
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.tableView.mj_header?.endRefreshing()
+                })
             }else{
                 
                 let gamesInfo : GameListInfo = result!
-                
-                
-                if result?.gameList.count >= self.pageSize {
-                    if self.refreshFoot == nil{
-                        self.setupRefreshFoot()
-                    }
-                }
                 
                 if self.gameListInfo.gameList.count == 0 {
                     self.gameListInfo = gamesInfo
@@ -77,6 +66,7 @@ class ClassAllItemTbVC: GameListBaseTableViewController {
                 
                 self.currPage++
                 dispatch_async(dispatch_get_main_queue(), {
+                    self.tableView.mj_header?.endRefreshing()
                     self.tableView.reloadData()
                 })
                 self.updateVersion()
@@ -91,23 +81,24 @@ class ClassAllItemTbVC: GameListBaseTableViewController {
             
             FVCustomAlertView.shareInstance.showDefaultCustomAlertOnView(self.view, withTitle: Common.LocalizedStringForKey("net_err"), delayTime: Common.alertDelayTime)
             
-            if self.refreshFoot != nil {
-                self.refreshFoot!.endRefreshing()
-            }
-            
-            
             return
         }
         
         HttpHelper<GameListInfo>.getClassAllItemList(gameClassID, pagenum: currPage, pagesize: pageSize) { (result) -> () in
             
             if result == nil{
-                
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.tableView.mj_footer?.endRefreshing()
+                })
             }else{
                 let gamesInfo : GameListInfo = result!
                 
                 if gamesInfo.pageNum == nil || gamesInfo.pageNum < self.currPage {
-                    self.removeFooterRefresh()
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.tableView.mj_footer?.endRefreshing()
+                        self.removeFooterRefresh()
+                    })
                     return
                 }
                 
@@ -124,6 +115,7 @@ class ClassAllItemTbVC: GameListBaseTableViewController {
                 }
                 self.currPage++
                 dispatch_async(dispatch_get_main_queue(), {
+                    self.tableView.mj_footer?.endRefreshing()
                     self.tableView.reloadData()
                 })
             }
