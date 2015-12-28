@@ -128,7 +128,7 @@ class ClassificationTbVC: RefreshTableViewController {
             
         case .UIDeviceResolution_iPhoneRetina55 :
             
-            return 242.0
+            return 249.0
         case .UIDeviceResolution_iPadStandard:
             return 333.0
         case .UIDeviceResolution_iPadRetina:

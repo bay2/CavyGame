@@ -179,6 +179,12 @@ struct Common {
        
         if "zh-Hans" <= lan {
             return "zh"
+        } else if "zh-Hant" <= lan {
+            return "zh_tw"
+        } else if "zh-HK" <= lan {
+            return "zh_tw"
+        } else if "ja" <= lan {
+            return "ja"
         }
         
         return "en"
