@@ -1,0 +1,6 @@
+
+*.pch
+
+Pods/*
+
+*.xcuserstate
