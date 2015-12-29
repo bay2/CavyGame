@@ -250,7 +250,7 @@ static Reachability *rchaBility = nil;
     
     
     
-    NSString *downURL = [[NSString alloc] initWithFormat:@"%@%@&phonetype=ios&devinfo=%@&serial=%@", DOWNCNTURL, gameid, identifier, deviceInfo];
+    NSString *downURL = [[NSString alloc] initWithFormat:@"%@%@&phonetype=ios&devinfo=%@&serial=%@", DOWNCNTURL, gameid, deviceInfo, identifier];
     downURL = [downURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
