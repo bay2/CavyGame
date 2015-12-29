@@ -175,15 +175,16 @@ struct Common {
         var defaults = NSUserDefaults.standardUserDefaults()
         var allLanguages: AnyObject? = defaults.objectForKey("AppleLanguages")
         var preferredLang: AnyObject? = allLanguages?.objectAtIndex(0)
-        var lan = allLanguages?.objectAtIndex(0) as! String
+        var lan = allLanguages?.objectAtIndex(0) as! NSString
+        
        
-        if "zh-Hans" <= lan {
+        if lan.containsString("zh-Hans") {
             return "zh"
-        } else if "zh-Hant" <= lan {
+        } else if lan.containsString("zh-Hant") {
             return "zh_tw"
-        } else if "zh-HK" <= lan {
+        } else if lan.containsString("zh-HK") {
             return "zh_tw"
-        } else if "ja" <= lan {
+        } else if lan.containsString("ja") {
             return "ja"
         }
         
