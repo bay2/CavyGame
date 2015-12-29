@@ -38,12 +38,17 @@ class PrefecturListViewController: UIViewController {
         view.backgroundColor = UIColor(hexString: backgroundColor)
         
         MJRefreshAdapter.setupRefreshHeader(prefectureListTable, target: self, action: "loadGameListData")
-        MJRefreshAdapter.setupRefreshFoot(prefectureListTable, target: self, action: "loadGameListData")
+        MJRefreshAdapter.setupRefreshFoot(prefectureListTable, target: self, action: "refreshFoot")
         
         loadGameListData()
         
         loadBackgroundColor()
         
+    }
+    
+    func refreshFoot() {
+        pagenum++
+        loadGameListData()
     }
     
     func loadBackgroundColor() {
@@ -137,8 +142,6 @@ class PrefecturListViewController: UIViewController {
                     self.prefectureListTable.mj_footer?.endRefreshing()
                     self.prefectureListTable.mj_footer = nil
                 
-                    self.pagenum++
-                    
                     self.prefectureListTable.reloadData()
                 
                 }
