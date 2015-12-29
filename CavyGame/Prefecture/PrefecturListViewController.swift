@@ -136,11 +136,16 @@ class PrefecturListViewController: UIViewController {
                     self.prefectureListData.intro = data.intro
                     self.prefectureListData.style = data.style
                     self.prefectureListData.title = data.title
-                    self.prefectureListData.gamelist =  self.prefectureListData.gamelist + data.gamelist
                 
                     self.prefectureListTable.mj_header?.endRefreshing()
                     self.prefectureListTable.mj_footer?.endRefreshing()
                     self.prefectureListTable.mj_footer = nil
+                    
+                    if self.pagenum != 1 {
+                       self.prefectureListData.gamelist =  self.prefectureListData.gamelist + data.gamelist
+                    } else {
+                       self.prefectureListData.gamelist =  data.gamelist
+                    }
                 
                     self.prefectureListTable.reloadData()
                 
