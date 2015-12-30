@@ -55,8 +55,7 @@ class GameListBaseTableViewController: RefreshTableViewController {
     func loadData(){
         // 加载第一页
         
-        self.currPage = 1
-        HttpHelper<GameListInfo>.getRankList (currPage, pagesize : pageSize, completionHandlerRet:{(result) -> () in
+        HttpHelper<GameListInfo>.getRankList (1, pagesize : pageSize * currPage, completionHandlerRet:{(result) -> () in
             
             if result == nil{
                 dispatch_async(dispatch_get_main_queue(), {
@@ -65,6 +64,7 @@ class GameListBaseTableViewController: RefreshTableViewController {
             }else{
                 
                 let gamesInfo : GameListInfo = result!
+                
                 if self.gameListInfo.gameList.count == 0 {
                     self.gameListInfo = gamesInfo
                 }else{
@@ -74,7 +74,6 @@ class GameListBaseTableViewController: RefreshTableViewController {
                     }
                 }
                 
-                self.currPage++
                 dispatch_async(dispatch_get_main_queue(), {
                     self.tableView.reloadData()
                     self.tableView.mj_header?.endRefreshing()

@@ -37,18 +37,22 @@ class PrefecturListViewController: UIViewController {
         
         view.backgroundColor = UIColor(hexString: backgroundColor)
         
-        MJRefreshAdapter.setupRefreshHeader(prefectureListTable, target: self, action: "loadGameListData")
+        MJRefreshAdapter.setupRefreshHeader(prefectureListTable, target: self, action: "refrshHeader")
         MJRefreshAdapter.setupRefreshFoot(prefectureListTable, target: self, action: "refreshFoot")
         
-        loadGameListData()
+        loadGameListData(1, pagesize: pagesize)
         
         loadBackgroundColor()
         
     }
     
+    func refrshHeader() {
+        loadGameListData(1, pagesize: pagenum * pagesize)
+    }
+    
     func refreshFoot() {
         pagenum++
-        loadGameListData()
+        loadGameListData(pagenum, pagesize: pagenum * pagesize)
     }
     
     func loadBackgroundColor() {
@@ -92,7 +96,7 @@ class PrefecturListViewController: UIViewController {
     /**
     加载数据
     */
-    func loadGameListData() {
+    func loadGameListData(pagenum : Int, pagesize : Int) {
         
         if true == Down_Interface().isNotReachable() {
             

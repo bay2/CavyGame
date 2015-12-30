@@ -44,14 +44,18 @@ class ClassAllItemTbVC: GameListBaseTableViewController {
             return
         }
         
-        self.currPage = 1
-        HttpHelper<GameListInfo>.getClassAllItemList(gameClassID, pagenum: self.currPage, pagesize: pageSize) { (result) -> () in
+        
+        var nowPageSize = self.currPage * self.pageSize
+        
+        HttpHelper<GameListInfo>.getClassAllItemList(gameClassID, pagenum: 1, pagesize: nowPageSize) { (result) -> () in
             
             if result == nil{
                 dispatch_async(dispatch_get_main_queue(), {
                     self.tableView.mj_header?.endRefreshing()
                 })
             }else{
+                
+                var nowPageSize = self.currPage * self.pageSize
                 
                 let gamesInfo : GameListInfo = result!
                 
@@ -64,7 +68,6 @@ class ClassAllItemTbVC: GameListBaseTableViewController {
                     }
                 }
                 
-                self.currPage++
                 dispatch_async(dispatch_get_main_queue(), {
                     self.tableView.mj_header?.endRefreshing()
                     self.tableView.reloadData()
@@ -84,6 +87,7 @@ class ClassAllItemTbVC: GameListBaseTableViewController {
             return
         }
         
+        self.currPage++
         HttpHelper<GameListInfo>.getClassAllItemList(gameClassID, pagenum: currPage, pagesize: pageSize) { (result) -> () in
             
             if result == nil{
@@ -102,6 +106,7 @@ class ClassAllItemTbVC: GameListBaseTableViewController {
                     return
                 }
                 
+                
                 if self.gameListInfo.gameList.count == 0 {
                     self.gameListInfo = gamesInfo
                 }else{
@@ -113,7 +118,7 @@ class ClassAllItemTbVC: GameListBaseTableViewController {
                     }
                     
                 }
-                self.currPage++
+                
                 dispatch_async(dispatch_get_main_queue(), {
                     self.tableView.mj_footer?.endRefreshing()
                     self.tableView.reloadData()

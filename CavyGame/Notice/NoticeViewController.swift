@@ -29,19 +29,31 @@ class NoticeViewController: UIViewController  {
         
         noticeTableView.registerNibExt("NoticeTableViewCell", identifier: "Notice")
         
-        MJRefreshAdapter.setupRefreshFoot(noticeTableView, target: self, action: "loadData")
-        MJRefreshAdapter.setupRefreshHeader(noticeTableView, target: self, action: "loadData")
+        MJRefreshAdapter.setupRefreshFoot(noticeTableView, target: self, action: "refreshFoot")
+        MJRefreshAdapter.setupRefreshHeader(noticeTableView, target: self, action: "refreshHeader")
         
-        loadData()
+        loadData(1, pagesize: pagesize)
     
         // Do any additional setup after loading the view.
+    }
+    
+    func refreshFoot() {
+        
+        loadData(1, pagesize: pagenum * pagesize)
+        
+    }
+    
+    func refreshHeader() {
+        
+        loadData(pagenum, pagesize: pagesize)
+        
     }
     
     
     /**
     加载数据
     */
-    func loadData() {
+    func loadData(pagenum : Int, pagesize : Int) {
         
         //加载公告信息
         

@@ -317,16 +317,6 @@ extension RecommendationVC {
             cell.specialTopicBtn.layer.borderWidth = 0.6
             cell.specialTopicBtn.layer.borderColor = UIColor(hexString: "BBBBBB")?.CGColor
             
-//            cell.specialTopicBtn.sd_setBackgroundImageWithURL(NSURL(string: gameInfoItem.bannerphone!), forState: UIControlState.Normal, placeholderImage: UIImage(named: "banner_1"), completed: { (image, error, imageCacheType, URL) -> Void in
-//                
-//                cell.specialTopicBtn.layer.borderWidth = 0.6
-//                cell.specialTopicBtn.layer.borderColor = UIColor(hexString: "BBBBBB")?.CGColor
-//                
-//            })
-            // 设置圆角
-//            cell.specialTopicBtn.layer.masksToBounds = true;
-//            cell.specialTopicBtn.layer.cornerRadius = Common.bannerRadius
-            
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             return cell
         }else{
