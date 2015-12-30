@@ -883,7 +883,7 @@ struct PrefectureListRet : ResponseConvertible {
 #if DEBUG
     let serverAddr = "http://115.28.144.243/gamecenter/"
 #else
-    let serverAddr = "http://game.tunshu.com/"
+    let serverAddr = "https://game.tunshu.com/"
 #endif
 
 public class HttpHelper< T:ResponseConvertible>{
