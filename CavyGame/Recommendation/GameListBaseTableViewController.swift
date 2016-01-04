@@ -93,6 +93,7 @@ class GameListBaseTableViewController: RefreshTableViewController {
             return
         }
         
+        self.currPage++
         HttpHelper<GameListInfo>.getRankList (currPage, pagesize : pageSize, completionHandlerRet:{(result) -> () in
             
             if result == nil{
@@ -118,7 +119,7 @@ class GameListBaseTableViewController: RefreshTableViewController {
                         return
                     }
                 }
-                self.currPage++
+               
                 dispatch_async(dispatch_get_main_queue(), {
                     self.tableView.mj_footer?.endRefreshing()
                     self.tableView.reloadData()
