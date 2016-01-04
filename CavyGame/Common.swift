@@ -178,13 +178,13 @@ struct Common {
         var lan = allLanguages?.objectAtIndex(0) as! NSString
         
        
-        if lan.containsString("zh-Hans") {
+        if lan.rangeOfString("zh-Hans").location != NSNotFound {
             return "zh"
-        } else if lan.containsString("zh-Hant") {
+        } else if lan.rangeOfString("zh-Hant").location  != NSNotFound {
             return "zh_tw"
-        } else if lan.containsString("zh-HK") {
+        } else if lan.rangeOfString("zh-HK").location  != NSNotFound {
             return "zh_tw"
-        } else if lan.containsString("ja") {
+        } else if lan.rangeOfString("ja").location  != NSNotFound {
             return "ja"
         }
         
