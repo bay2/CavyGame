@@ -29,8 +29,6 @@ class GameAppInfoTableViewCell: UITableViewCell {
         title2.text = Common.LocalizedStringForKey("appinfo_title4")
         title3.text = Common.LocalizedStringForKey("appinfo_title5")
         title4.text = Common.LocalizedStringForKey("appinfo_title6")
-        
-        println("title4.text = \(title4.text)")
         title5.text = Common.LocalizedStringForKey("appinfo_title7")
         
         super.awakeFromNib()
