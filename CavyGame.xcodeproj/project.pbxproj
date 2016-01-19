@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		008E6B3CC448EBD7D8A937DC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 685D95E6ED6C13DFBB4A0CDA /* libPods.a */; };
+		148EF79A0ECE47CAA63831A3 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB5AB05269D1355ABB1B0681 /* Pods.framework */; };
 		4642DDB51ADA76DA00D0F32B /* SwiftColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4642DDB41ADA76DA00D0F32B /* SwiftColors.swift */; };
 		4659330B1AD7F60700969878 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4659330A1AD7F60700969878 /* AppDelegate.swift */; };
 		4659330D1AD7F60700969878 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4659330C1AD7F60700969878 /* ViewController.swift */; };
@@ -325,7 +325,6 @@
 		4659332A1AD7FB0E00969878 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		466C00871AD832D9002ED354 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		466C008E1AD92447002ED354 /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
-		685D95E6ED6C13DFBB4A0CDA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9101B40D1B820BEB00C4B057 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = Search/SearchViewController.swift; sourceTree = "<group>"; };
 		9101B4111B82FD7F00C4B057 /* HotKeyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HotKeyTableViewCell.swift; path = Search/HotKeyTableViewCell.swift; sourceTree = "<group>"; };
 		9101B4181B83132D00C4B057 /* AppInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppInfoViewController.swift; path = AppInfo/AppInfoViewController.swift; sourceTree = "<group>"; };
@@ -700,6 +699,7 @@
 		C7A253751B8187E0000A62ED /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		C7A253781B818B90000A62ED /* Down_Interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Down_Interface.h; sourceTree = "<group>"; };
 		C7A253791B818B90000A62ED /* Down_Interface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Down_Interface.m; sourceTree = "<group>"; };
+		FB5AB05269D1355ABB1B0681 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -724,7 +724,7 @@
 				C7A253721B8187CF000A62ED /* libSystem.dylib in Frameworks */,
 				C7A2536E1B8187A0000A62ED /* CoreLocation.framework in Frameworks */,
 				916719941BD7382800ACCAFB /* TestinAgent.framework in Frameworks */,
-				008E6B3CC448EBD7D8A937DC /* libPods.a in Frameworks */,
+				148EF79A0ECE47CAA63831A3 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -855,7 +855,7 @@
 		80BE2C5497E77A90BA3FA84C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				685D95E6ED6C13DFBB4A0CDA /* libPods.a */,
+				FB5AB05269D1355ABB1B0681 /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

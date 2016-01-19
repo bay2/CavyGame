@@ -1,10 +1,13 @@
 PODS:
+  - Masonry (0.6.4)
   - MJRefresh (3.0.8)
 
 DEPENDENCIES:
+  - Masonry
   - MJRefresh
 
 SPEC CHECKSUMS:
+  Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   MJRefresh: fafde8f18f4afd66b434331a9beb67a6c0264056
 
 COCOAPODS: 0.39.0
