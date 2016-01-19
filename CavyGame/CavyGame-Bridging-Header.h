@@ -21,4 +21,3 @@
 #import <TestinAgent/TestinAgent.h>
 #import "APService.h"
 #import "UITableView+FDTemplateLayoutCell.h"
-#import "MJRefresh.h"
