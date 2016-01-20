@@ -113,7 +113,6 @@ class HomeViewController: UIViewController, DMDynamicPageViewControllerDelegate,
                 break
             
             case "updateApp" :
-                CheckUpdate.shareInstance.checkUpdate();
                 break
             
             case "prefecture" :
@@ -255,7 +254,7 @@ class HomeViewController: UIViewController, DMDynamicPageViewControllerDelegate,
         
         let apnAlert = UIAlertView(title: Common.LocalizedStringForKey("alert_Location_APNs_Title"), message: alertMsg, delegate: self, cancelButtonTitle: nil, otherButtonTitles: Common.LocalizedStringForKey("alert_Location_ButtonDismissTitle"), Common.LocalizedStringForKey("alert_Location_ButtonViewTitle"))
         
-        //先初始化rootViewController，否则查看游戏信息会奔溃
+        //先初始化rootViewController
         Common()
         
         apnAlert.show()
