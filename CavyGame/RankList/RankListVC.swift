@@ -17,14 +17,16 @@ class RankListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var perListWidth     = CGFloat()
     var rankListBtnArray = NSMutableArray()
 
-    var listName = Array<String>()// = ["热榜","总榜"]   // 排行榜名字 靠解析获取
-    var listCount        = 2        // 排行榜个数：可直接改个数
-    var listCurrentIndex = 0        // 默认排行榜第一个
-    var currPage         = 1
+    var listCount :Int   = 0        // 排行榜个数：可直接改个数
+    var listCurrentIndex = 0        // 默认显示第一个排行榜
+    var currPage         = 1        // 下拉加载当前页
     let pageSize         = 10       // 每页获取的数目
     
     var btn_blogPage : String = ""
     var gameListInfo : GameListInfo = GameListInfo()
+    var rankListArray = Array<RankList>()
+    
+    
     
     
     // MARK: View
@@ -35,12 +37,11 @@ class RankListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         btn_blogPage = Common.notifyAdd_Page2
         
-        self.addRankListView()
+//        self.addRankListView()
         self.addTableView()
 
         self.currentListColor()
-        self.loadData()
-       // self.setSpaceHeadView()
+//        self.loadData()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "nofityShowLeftView:", name: Common.notifyShowLeftView, object: nil)
         
@@ -50,13 +51,35 @@ class RankListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         MJRefreshAdapter.setupRefreshHeader(self.tableView, target: self, action: "headerRefresh")
     }
     
+    /**
+      加载排行榜列表名称信息
+    */
     func loadListName(){
         // web接口(get):http://game.tunshu.com/mobileIndex/index?ac=newranking
         
-        
-        
-        
-        
+        HttpHelper<RankListInfo>.getRankingListName { (result) -> () in
+ 
+            if result == nil {
+                return
+            }
+            
+            let rankResult : RankListInfo = result!
+            
+            for temp in rankResult.data! {
+                self.rankListArray.append(temp)
+            }
+//            print("ranklistArray:-----------\(self.rankListArray[0].rankname!)\n\n\n")
+            self.listCount = self.rankListArray.count
+//            print("listCount in 【lodListName】\(self.listCount)\n")
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.addRankListView()
+                self.loadData()
+//                self.tableView.reloadData()
+            })
+            
+//            self.loadData()
+        }
+
     }
     
     func addTableView(){
@@ -113,6 +136,8 @@ class RankListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         self.perListWidth = UIScreen.mainScreen().bounds.width / CGFloat(self.listCount)
         
+        print("listCount in 【addRankListView】\(self.listCount)\n")
+        
         for var i = 0 ; i < self.listCount ; i++ {
             
             var perListButton = UIButton()
@@ -121,14 +146,20 @@ class RankListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             perListButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
             perListButton.frame = CGRectMake(perListWidth * CGFloat(i), 0, perListWidth, 30)
             perListButton.titleLabel?.font = UIFont.systemFontOfSize(14)
+            
+            if i == 0 {
+                perListButton.setTitleColor(UIColor(hexString: "#3e76db"), forState: UIControlState.Normal)
+            }else{
+                perListButton.setTitleColor(UIColor(hexString: "#868686"), forState: UIControlState.Normal)
+            }
+            perListButton.setTitle(self.rankListArray[i].rankname, forState: UIControlState.Normal)
             perListButton.tag = 1000 + i
             perListButton.addTarget(self, action: "orderAction:", forControlEvents: UIControlEvents.TouchUpInside)
-            
-            perListButton.setTitle(listName[i], forState: UIControlState.Normal)
             
             rankListBtnArray.insertObject(perListButton, atIndex: i)
             
             rankListView.addSubview(perListButton)
+//            self.currentListColor()
         }
         
         self.view.addSubview(self.rankListView)
@@ -143,22 +174,14 @@ class RankListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // MARK: 切换排行榜的事件
     func orderAction(sender:UIButton) {
         
-        for var i = 0 ; i < listCount ; i++ {
-            
-            if sender.tag == 1000 + i {
-                self.listCurrentIndex = i
-                
-                print("排行\(i)\n")
-                // 读取排行榜信息 读取第i个
-                
-              //  btn_blogPage = Common.notifyAdd_Page3
-                
-                
-                
-            }
-        }
-        self.tableView.reloadData()
+        
+        self.listCurrentIndex = sender.tag - 1000
+               
+        print("排行\(self.rankListArray[self.listCurrentIndex].rankname!)\n")
+        self.loadData()
+
         self.currentListColor()
+        self.tableView.reloadData()
     }
     
     // 选中当前排行榜的字是蓝色
@@ -177,10 +200,15 @@ class RankListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // 加载
     func loadData(){
+
+        let rankListType: String = self.rankListArray[self.listCurrentIndex].ranktype!
         
         // 加载第一页
-        
-        HttpHelper<GameListInfo>.getRankList (1, pagesize : pageSize * currPage, completionHandlerRet:{(result) -> () in
+        HttpHelper<GameListInfo>.getRankingList(1, ranktype: rankListType, pagesize: pageSize * currPage, completionHandlerRet:{(result) -> () in
+
+            print("result:-------------\(result?.gameList.count)\n\n\n")
+
+//        HttpHelper<GameListInfo>.getRankList (1, pagesize : pageSize * currPage, completionHandlerRet:{(result) -> () in
             
             if result == nil{
                 dispatch_async(dispatch_get_main_queue(), {
@@ -223,17 +251,6 @@ class RankListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     }
     
-    // ????????? 添加透视图 显示有空隙
-    /*
-    func setSpaceHeadView(){
-        var headerView = UIView(frame: CGRectMake(0.0, 0.0,
-            Common.screenWidth,
-            Common.controlTopSpace))
-        headerView.backgroundColor = Common.tableBackColor
-        self.tableView.tableHeaderView = headerView
-    }
-*/
-    // 
     func updateVersion(){
         
         for item in self.gameListInfo.gameList{

@@ -881,7 +881,7 @@ struct PrefectureListRet : ResponseConvertible {
 }
 
 /**
-*  排行名称列表
+*  +++排行名称列表
 */
 struct RankList {
     var rankname: String?
@@ -894,20 +894,21 @@ struct RankList {
 }
 
 /**
-*  排行名称列表结构
+*  +++排行名称列表结构
 */
 
-struct NewRank : ResponseConvertible {
+struct RankListInfo : ResponseConvertible {
     var code : String?
     var data : Array<RankList>?
-//  var msg : String?
+    var msg : String?
     
     init(){
     
     }
     init(_ decoder : JSONDecoder) {
-//      msg = decoder["msg"].string
         code = decoder["code"].string
+        msg = decoder["msg"].string
+        
         if let ranklists = decoder["data"].array {
             data = Array<RankList>()
             for dateDecoder in ranklists {
@@ -915,13 +916,14 @@ struct NewRank : ResponseConvertible {
             }
         }
     }
-    typealias Result = RankList
-    static func convertFromData(response: HTTPResponse!) -> (RankList?) {
+    typealias Result = RankListInfo
+    static func convertFromData(response: HTTPResponse!) -> (RankListInfo?) {
         if nil == response.responseObject {
             return nil
         }
-        var rankList = RankList(JSONDecoder(response.responseObject!))
-        return (rankList)
+        var rankListNameArray = RankListInfo(JSONDecoder(response.responseObject!))
+        return (rankListNameArray)
+        
     }
     
 }
@@ -1146,12 +1148,13 @@ public class HttpHelper< T:ResponseConvertible>{
     - parameter completionHandlerRet: 结果处理
     web接口(get):http://game.tunshu.com/mobileIndex/index?ac=newranking
     */
-    static public func getRankGameList(completionHandlerRet:(T.Result?)->()) {
+
+    static public func getRankingListName(completionHandlerRet:(T.Result?)->()) {
         
         let url = serverAddr + "mobileIndex/index?"
-        
-        let parameters: Dictionary<String, AnyObject> = ["ac":"newranking"]
-        
+//        let url = "http://115.28.144.243:8088/gamecenter/mobileIndex/index?"
+
+        let parameters: Dictionary<String, AnyObject> = ["ac":"newranking"];
         
         reqGet(url, parameters: parameters, completionHandlerRet: completionHandlerRet)
     }
@@ -1163,18 +1166,19 @@ public class HttpHelper< T:ResponseConvertible>{
     - parameter ranktype:             排行榜种类
     - parameter pagesize:             获取每一条数据
     - parameter completionHandlerRet: 结果处理
-    web接口(POST)：http://cavytest.tunshu.com/mobileIndex/index?ac=getrankgame&ranktype=week&pagenum=1&pagesize=5
+    web接口(POST)：http://cavytest.tunshu.com/mobileIndex/index?ac=getrankgame&ranktype=newup&pagenum=1&pagesize=5
+    
     */
-    static public func getRankGameList(pagenum : Int, ranktype : String, pagesize : Int, completionHandlerRet:(T.Result?)->()) {
+    static public func getRankingList(pagenum : Int, ranktype : String, pagesize : Int, completionHandlerRet:(T.Result?)->()) {
         
-        let url = serverAddr + "mobileIndex/index?"
+        let url = serverAddr + "appIndex/index?"
         
-        let parameters: Dictionary<String, AnyObject> = ["ac":"getRankgame",
+        let parameters: Dictionary<String, AnyObject> = ["ac":"getrankgames",
             "ranktype":"\(ranktype)",
             "pagenum":"\(pagenum)",
             "pagesize":"\(pagesize)",]
         
-        reqPost(url, parameters: parameters, completionHandlerRet: completionHandlerRet)
+        reqGet(url, parameters: parameters, completionHandlerRet: completionHandlerRet)
     }
     
     
