@@ -17,7 +17,22 @@ class RecommendationVC : GameListBaseTableViewController {
     var tapGesture1: UITapGestureRecognizer!
     var tapGesture2: UITapGestureRecognizer!
 
-    let imgCornerRadius : CGFloat = Common.bannerRadius
+    var imgCornerRadius : CGFloat {
+        
+        get {
+            
+            if .UIDeviceResolution_iPhoneRetina4 == resolution() {
+                
+                return 7
+                
+            } else {
+                
+                return 11
+                
+            }
+            
+        }
+    }
 
     let controlSpace : CGFloat = 10/2  // 控件间的间隔
     
@@ -62,8 +77,8 @@ class RecommendationVC : GameListBaseTableViewController {
         headerbanner1View!.delegate = self
         headerbanner1View!.autoScroll = true
         headerbanner1View!.backgroundColor = UIColor.whiteColor()
-        headerbanner1View.layer.borderWidth = 0.6
-        headerbanner1View.layer.borderColor = UIColor(hexString: "BBBBBB")?.CGColor
+        headerbanner1View.layer.borderWidth = 0.3
+        headerbanner1View.layer.borderColor = UIColor(hexString: "BBBBBB", alpha: 0.4)?.CGColor//UIColor(hexString: "BBBBBB")?.CGColor
         
         // img1
         headerbanner2Btn1 = UIButton(frame: CGRectMake(controlSpace,
@@ -73,8 +88,8 @@ class RecommendationVC : GameListBaseTableViewController {
         headerbanner2Btn1.setImage(UIImage(named: defultImg), forState: UIControlState.Normal)
         headerbanner2Btn1.addTarget(self, action: "handleTap:", forControlEvents: UIControlEvents.TouchUpInside)
         headerbanner2Btn1.tag = 0
-        headerbanner2Btn1.layer.borderWidth = 0.6
-        headerbanner2Btn1.layer.borderColor = UIColor(hexString: "BBBBBB")?.CGColor
+        headerbanner2Btn1.layer.borderWidth = 0.3
+        headerbanner2Btn1.layer.borderColor = UIColor(hexString: "BBBBBB", alpha: 0.4)?.CGColor
         
         // img2
         headerbanner2Btn2 = UIButton(frame: CGRectMake(controlSpace * 2 + banner2ImgWidth,
@@ -84,8 +99,8 @@ class RecommendationVC : GameListBaseTableViewController {
         headerbanner2Btn2.setImage(UIImage(named: defultImg), forState: UIControlState.Normal)
         headerbanner2Btn2.addTarget(self, action: "handleTap:", forControlEvents: UIControlEvents.TouchUpInside)
         headerbanner2Btn2.tag = 1
-        headerbanner2Btn2.layer.borderWidth = 0.6
-        headerbanner2Btn2.layer.borderColor = UIColor(hexString: "BBBBBB")?.CGColor
+        headerbanner2Btn2.layer.borderWidth = 0.3
+        headerbanner2Btn2.layer.borderColor = UIColor(hexString: "BBBBBB", alpha: 0.4)?.CGColor
         
         var headerView = UIView(frame: CGRectMake(0.0, 0.0,
             self.view.bounds.width,
