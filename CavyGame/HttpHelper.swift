@@ -880,6 +880,82 @@ struct PrefectureListRet : ResponseConvertible {
     }
 }
 
+/**
+*  类别标签
+*/
+struct ClassTag {
+    var tagId : Int?
+    var tagName : String?
+    var tagImgUrl : String?
+    var tagTextColor : String?
+    
+    init(_ decoder: JSONDecoder) {
+        
+        tagId = decoder["mark_id"].integer
+        tagName = decoder["mark_name"].string
+        tagImgUrl = decoder["mark_imgurl"].string
+        tagTextColor = decoder["mark_color"].string
+        
+    }
+}
+
+/**
+*  classification
+*/
+struct Classification {
+    
+    var class_id : Int?
+    var class_name : String?
+    var class_imgurl : String?
+    var tagArray : Array<ClassTag> = Array<ClassTag>()
+    
+    init(_ decoder: JSONDecoder) {
+        
+        class_id = decoder["class_id"].integer
+        class_name = decoder["class_name"].string
+        class_imgurl = decoder["class_imgurl"].string
+        
+        for tagData in decoder["markarr"].array! {
+            
+            tagArray.append(ClassTag(tagData))
+            
+        }
+        
+    }
+    
+}
+
+/**
+*  分类
+*/
+struct ClassificationMsg: ResponseConvertible {
+    var code: String?
+    var data: Array<Classification> = Array<Classification>()
+    var msg: String?
+    
+    init(_ decoder: JSONDecoder) {
+        code = decoder["code"].string
+        msg = decoder["msg"].string
+        data = Array<Classification>()
+        for classData in decoder["data"].array! {
+            
+            data.append(Classification(classData))
+            
+        }
+    }
+    
+    typealias Result = ClassificationMsg
+    static func convertFromData(response: HTTPResponse!) -> (Result?) {
+        
+        if response == nil {
+            return nil
+        }
+        
+        return ClassificationMsg(JSONDecoder(response.responseObject!))
+        
+    }
+}
+
 #if DEBUG
     let serverAddr = "http://115.28.144.243/gamecenter/"
 #else
@@ -1474,6 +1550,21 @@ public class HttpHelper< T:ResponseConvertible>{
             "pagenum":"\(pagenum)",
             "pagesize":"\(pagesize)",
             "preId":"\(preId)"]
+        
+        reqGet(url, parameters: parameters, completionHandlerRet: completionHandlerRet)
+        
+    }
+    
+    /**
+    分类请求
+    
+    - parameter completionHandlerRet: 回调
+    */
+    static public func getClassificationInfo(completionHandlerRet: (T.Result?)->()) {
+        
+        let url = serverAddr + "mobileIndex/index?"
+        
+        let parameters = ["ac":"newclassification"]
         
         reqGet(url, parameters: parameters, completionHandlerRet: completionHandlerRet)
         

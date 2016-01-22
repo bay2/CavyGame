@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--Classification View Controller-->
+        <scene sceneID="VcR-yf-viT">
+            <objects>
+                <viewController storyboardIdentifier="ClassificationViewController" id="Lq5-eK-wCn" customClass="ClassificationViewController" customModule="SwiftCavyGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gqM-as-YVL"/>
+                        <viewControllerLayoutGuide type="bottom" id="YaE-k5-8ox"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mXE-id-bLW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="77L-oN-wnO">
+                                <rect key="frame" x="0.0" y="5" width="600" height="595"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ClassificationCell" rowHeight="120" id="lPb-wQ-bv8" customClass="ClassificationTableViewCell" customModule="SwiftCavyGame" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lPb-wQ-bv8" id="Vet-Ty-AsH">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gef-35-wYY">
+                                                    <rect key="frame" x="0.0" y="120" width="600" height="0.0"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="0.29999999999999999" id="Qpn-Sc-5ak"/>
+                                                        <constraint firstAttribute="width" constant="0.29999999999999999" id="ko8-95-eBY"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="ko8-95-eBY"/>
+                                                        </mask>
+                                                    </variation>
+                                                </view>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="gef-35-wYY" secondAttribute="bottom" id="Bfy-E4-KZ0"/>
+                                                <constraint firstAttribute="trailing" secondItem="gef-35-wYY" secondAttribute="trailing" id="WWW-Yt-uaQ"/>
+                                                <constraint firstItem="gef-35-wYY" firstAttribute="leading" secondItem="Vet-Ty-AsH" secondAttribute="leading" id="rTT-1p-2dL"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Lq5-eK-wCn" id="HLf-9b-NvW"/>
+                                    <outlet property="delegate" destination="Lq5-eK-wCn" id="5qh-e1-Ein"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="77L-oN-wnO" secondAttribute="bottom" id="HgT-NZ-7d5"/>
+                            <constraint firstAttribute="trailing" secondItem="77L-oN-wnO" secondAttribute="trailing" id="R9G-fO-nAG"/>
+                            <constraint firstItem="77L-oN-wnO" firstAttribute="top" secondItem="mXE-id-bLW" secondAttribute="top" constant="5" id="aR2-Br-o6E"/>
+                            <constraint firstItem="77L-oN-wnO" firstAttribute="leading" secondItem="mXE-id-bLW" secondAttribute="leading" id="fRm-9C-Mox"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="classTableView" destination="77L-oN-wnO" id="9pY-UX-YpG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zbY-EK-Bmf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="454" y="266"/>
+        </scene>
+    </scenes>
+</document>
