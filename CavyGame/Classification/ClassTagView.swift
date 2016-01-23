@@ -12,6 +12,8 @@ class ClassTagView: UIView {
 
     // 大小定义
     private let tagImgSize = CGSizeMake(16, 16)
+   
+
     
     var tagImgUrl = "" {
         

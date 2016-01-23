@@ -153,7 +153,7 @@ extension ClassificationViewController {
         
         let view = UIView()
         
-        view.backgroundColor = UIColor(hexString: "#EEEEEE")
+        view.backgroundColor = Common.tableBackColor
         
         return view
     }
@@ -163,18 +163,47 @@ extension ClassificationViewController {
 // MARK: - 标签视图代理
 extension ClassificationViewController {
     
+    /**
+    创建标签视图
+    
+    - parameter tagIndex:  标签索引
+    - parameter indexPath: cell 索引
+    
+    - returns: 标签视图
+    */
     func createTagView(tagIndex: Int, indexPath: NSIndexPath) -> ClassTagView {
         
         let tagView = ClassTagView()
         
+        tagView.userInteractionEnabled = true
+        var tapGR = UITapGestureRecognizer(target: self, action: "onClickTagView:")
         
+        tagView.tag = classData[indexPath.section].tagArray[tagIndex].tagId!
+        tagView.addGestureRecognizer(tapGR)
         
         tagView.tagImgUrl = classData[indexPath.section].tagArray[tagIndex].tagImgUrl!
         tagView.tagTextLab.text = classData[indexPath.section].tagArray[tagIndex].tagName
         tagView.tagTxtLabColor = classData[indexPath.section].tagArray[tagIndex].tagTextColor!
         
-        
         return tagView
         
     }
+    
+    
+    /**
+    标签点击事件处理
+    
+    - parameter sendr: sendr
+    */
+    func onClickTagView(sendr: UITapGestureRecognizer) {
+        
+        var tagClassView = ClassAllItemTbVC()
+        let tagView = sendr.view! as! ClassTagView
+        tagClassView.title = tagView.tagTextLab.text
+        
+        tagClassView.gameTagID = "\(tagView.tag)"
+        self.navigationController?.pushViewController(tagClassView, animated: true)
+        
+    }
+    
 }

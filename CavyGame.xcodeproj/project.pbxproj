@@ -128,6 +128,7 @@
 		91A1D5531B99E1330002BC59 /* UIImageView+NHLinearShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A1D5521B99E1330002BC59 /* UIImageView+NHLinearShadow.m */; };
 		91A1D5581B9A89310002BC59 /* PrefectureStyle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91A1D5571B9A89310002BC59 /* PrefectureStyle.plist */; };
 		91A1D55C1B9A9CCC0002BC59 /* PrefectureDownloadWithProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A1D55B1B9A9CCC0002BC59 /* PrefectureDownloadWithProgressButton.swift */; };
+		91C0CF6E1C535A000028321C /* ClassAllItemTbVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C0CF6D1C535A000028321C /* ClassAllItemTbVC.swift */; };
 		91CA757D1C2CFA2B009C0BB7 /* UpdateInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CA757B1C2CFA2B009C0BB7 /* UpdateInfoTableViewCell.swift */; };
 		91CA757E1C2CFA2B009C0BB7 /* UpdateInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91CA757C1C2CFA2B009C0BB7 /* UpdateInfoTableViewCell.xib */; };
 		91CEFAF41C2F9F6D00779D84 /* MJRefreshAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CEFAF31C2F9F6D00779D84 /* MJRefreshAdapter.swift */; };
@@ -468,6 +469,7 @@
 		91A1D5521B99E1330002BC59 /* UIImageView+NHLinearShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+NHLinearShadow.m"; sourceTree = "<group>"; };
 		91A1D5571B9A89310002BC59 /* PrefectureStyle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PrefectureStyle.plist; sourceTree = "<group>"; };
 		91A1D55B1B9A9CCC0002BC59 /* PrefectureDownloadWithProgressButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefectureDownloadWithProgressButton.swift; sourceTree = "<group>"; };
+		91C0CF6D1C535A000028321C /* ClassAllItemTbVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassAllItemTbVC.swift; sourceTree = "<group>"; };
 		91CA757B1C2CFA2B009C0BB7 /* UpdateInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpdateInfoTableViewCell.swift; path = AppInfo/UpdateInfoTableViewCell.swift; sourceTree = "<group>"; };
 		91CA757C1C2CFA2B009C0BB7 /* UpdateInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UpdateInfoTableViewCell.xib; path = AppInfo/UpdateInfoTableViewCell.xib; sourceTree = "<group>"; };
 		91CA8F491BD5DC3F0020E5C3 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -1294,6 +1296,7 @@
 		B34D0E511B784725009D6FF1 /* Classification */ = {
 			isa = PBXGroup;
 			children = (
+				91C0CF6D1C535A000028321C /* ClassAllItemTbVC.swift */,
 				91013AF41C4F7D4B00FCF962 /* ClassificationTableViewCell.swift */,
 				91013AF21C4F798A00FCF962 /* ClassificationViewController.swift */,
 				91013AEE1C4F766400FCF962 /* ClassTagView.swift */,
@@ -2193,6 +2196,7 @@
 				91CA757D1C2CFA2B009C0BB7 /* UpdateInfoTableViewCell.swift in Sources */,
 				B34AC8CB1B788C830038FC3C /* LIJOperation.swift in Sources */,
 				4659332B1AD7FB0E00969878 /* HomeViewController.swift in Sources */,
+				91C0CF6E1C535A000028321C /* ClassAllItemTbVC.swift in Sources */,
 				91013AE71C4F762B00FCF962 /* Debugging.swift in Sources */,
 				9153A6BC1B981D5000956465 /* PrefectureTableViewCell.swift in Sources */,
 				C7A253671B8186AF000A62ED /* UIAlertView+AFNetworking.m in Sources */,
