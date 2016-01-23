@@ -228,7 +228,6 @@ class ClassificationTableViewCell: UITableViewCell {
                     make.left.equalTo(tagViews)
                 } else {
                     make.left.equalTo(tagViews).offset((CGFloat(gap) + tagViewSize.width) * CGFloat(curColumnIndex))
-                    println("(\(CGFloat(gap)) + \(tagViewSize.width)) * \(CGFloat(curColumnIndex))")
                 }
                 
                 // pad 一行的情况居中对齐
@@ -242,7 +241,6 @@ class ClassificationTableViewCell: UITableViewCell {
                     make.top.equalTo(tagViews)
                 } else {
                     make.top.equalTo(tagViews).offset(CGFloat(index / columnNum) * (tagViewSize.height + tagRowGap))
-                    println("\(index) make.top.equalTo(tagViews).offset = \(CGFloat(index / columnNum) * (tagViewSize.width + tagRowGap))")
                 }
                 
  
