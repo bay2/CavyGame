@@ -880,6 +880,58 @@ struct PrefectureListRet : ResponseConvertible {
     }
 }
 
+/**
+* 排行名称列表
+*/
+struct RankList {
+    var rankname: String?
+    var ranktype: String?
+    
+    init(_ decoder: JSONDecoder) {
+        rankname = decoder["rankname"].string
+        ranktype = decoder["ranktype"].string
+    }
+}
+
+/**
+*  排行名称列表结构
+*/
+
+struct RankListInfo : ResponseConvertible {
+    var code : String?
+    var data : Array<RankList>?
+    var msg : String?
+    
+    init(){
+    
+    }
+    init(_ decoder : JSONDecoder) {
+        code = decoder["code"].string
+        msg = decoder["msg"].string
+        
+        if let ranklists = decoder["data"].array {
+            data = Array<RankList>()
+            for dateDecoder in ranklists {
+            data?.append(RankList(dateDecoder))
+            }
+        }
+    }
+    typealias Result = RankListInfo
+    static func convertFromData(response: HTTPResponse!) -> (RankListInfo?) {
+        if nil == response.responseObject {
+            return nil
+        }
+        var rankListNameArray = RankListInfo(JSONDecoder(response.responseObject!))
+        return (rankListNameArray)
+        
+    }
+    
+}
+
+
+
+
+
 #if DEBUG
     let serverAddr = "http://115.28.144.243/gamecenter/"
 #else
@@ -1089,6 +1141,44 @@ public class HttpHelper< T:ResponseConvertible>{
     }
     
     /**
+    获取游戏排行榜列表
+    
+    - parameter completionHandlerRet: 结果处理
+    web接口(get):http://game.tunshu.com/mobileIndex/index?ac=newranking
+    */
+
+    static public func getRankingListName(completionHandlerRet:(T.Result?)->()) {
+        
+        let url = serverAddr + "mobileIndex/index?"
+
+        let parameters: Dictionary<String, AnyObject> = ["ac":"newranking"];
+        
+        reqGet(url, parameters: parameters, completionHandlerRet: completionHandlerRet)
+    }
+    
+    /**
+    通过 ranktype 来显示排行榜信息
+    
+    - parameter pagenum:              需要获取的页数据
+    - parameter ranktype:             排行榜种类
+    - parameter pagesize:             获取每一条数据
+    - parameter completionHandlerRet: 结果处理
+    web接口(POST)：http://cavytest.tunshu.com/mobileIndex/index?ac=getrankgame&ranktype=newup&pagenum=1&pagesize=5
+    
+    */
+    static public func getRankingList(pagenum : Int, ranktype : String, pagesize : Int, completionHandlerRet:(T.Result?)->()) {
+        
+        let url = serverAddr + "appIndex/index?"
+        
+        let parameters: Dictionary<String, AnyObject> = ["ac":"getrankgames",
+            "ranktype":"\(ranktype)",
+            "pagenum":"\(pagenum)",
+            "pagesize":"\(pagesize)",]
+        
+        reqGet(url, parameters: parameters, completionHandlerRet: completionHandlerRet)
+    }
+    
+    /**
     获取游戏排行信息请求
     
     :param: pagenum              需要获取的页数据
@@ -1104,6 +1194,7 @@ public class HttpHelper< T:ResponseConvertible>{
             "pagenum":"\(pagenum)",
             "pagesize":"\(pagesize)",]
         
+      
         reqGet(url, parameters: parameters, completionHandlerRet: completionHandlerRet)
     }
     
