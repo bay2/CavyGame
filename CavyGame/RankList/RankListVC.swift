@@ -26,25 +26,17 @@ class RankListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var gameListInfo : GameListInfo = GameListInfo()
     var rankListArray = Array<RankList>()
     
-    
-    
-    
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.loadListName()
-        
         btn_blogPage = Common.notifyAdd_Page2
         
-//        self.addRankListView()
+        self.loadListName()
         self.addTableView()
-
         self.currentListColor()
-//        self.loadData()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "nofityShowLeftView:", name: Common.notifyShowLeftView, object: nil)
-        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "nofityShowHomeView:", name: Common.notifyShowHomeView, object: nil)
         
         MJRefreshAdapter.setupRefreshFoot(self.tableView, target: self, action: "footerRefresh")
@@ -68,20 +60,19 @@ class RankListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             for temp in rankResult.data! {
                 self.rankListArray.append(temp)
             }
-//            print("ranklistArray:-----------\(self.rankListArray[0].rankname!)\n\n\n")
+
             self.listCount = self.rankListArray.count
-//            print("listCount in 【lodListName】\(self.listCount)\n")
+
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.addRankListView()
                 self.loadData()
-//                self.tableView.reloadData()
             })
-            
-//            self.loadData()
         }
-
     }
     
+    /**
+    添加TableView
+    */
     func addTableView(){
         
         var cutHight: CGFloat = 64 + 30
@@ -94,7 +85,9 @@ class RankListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             cutHight += 49 // tab的总体高度 48 ＋ 1
         }
+        
         self.tableView = UITableView(frame: CGRectMake(0, 30, screenRect.width, screenRect.height - cutHight), style: UITableViewStyle.Plain)
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
@@ -115,7 +108,6 @@ class RankListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
-        
         switch resolution() {
             
         case .UIDeviceResolution_iPhoneRetina4 :
@@ -124,10 +116,12 @@ class RankListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.tableView.registerNib(UINib(nibName: "GameInfoTableViewCell", bundle:nil), forCellReuseIdentifier: "GameInfoTableViewCellid")
         }
         
-        
         self.view.addSubview(self.tableView)
     }
     
+    /**
+    添加排行榜视图
+    */
     func addRankListView(){
         
         self.rankListView = UIView(frame: CGRectMake(0, 0, screenRect.width, 30))
@@ -159,12 +153,14 @@ class RankListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             rankListBtnArray.insertObject(perListButton, atIndex: i)
             
             rankListView.addSubview(perListButton)
-//            self.currentListColor()
         }
         
         self.view.addSubview(self.rankListView)
     }
     
+    /**
+    返回
+    */
     func onClickBack() {
         
         self.navigationController?.popViewControllerAnimated(true)
@@ -173,7 +169,6 @@ class RankListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: 切换排行榜的事件
     func orderAction(sender:UIButton) {
-        
         
         self.listCurrentIndex = sender.tag - 1000
                
@@ -205,10 +200,6 @@ class RankListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         // 加载第一页
         HttpHelper<GameListInfo>.getRankingList(1, ranktype: rankListType, pagesize: pageSize * currPage, completionHandlerRet:{(result) -> () in
-
-            print("result:-------------\(result?.gameList.count)\n\n\n")
-
-//        HttpHelper<GameListInfo>.getRankList (1, pagesize : pageSize * currPage, completionHandlerRet:{(result) -> () in
             
             if result == nil{
                 dispatch_async(dispatch_get_main_queue(), {
@@ -259,6 +250,7 @@ class RankListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
+    
     // 通知
     func nofityShowHomeView(notification:NSNotification){
         
@@ -373,12 +365,11 @@ class RankListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     }
     
-
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
         if .UIDeviceResolution_iPhoneRetina4 == resolution() {
             
             return 93.5
-            
         }
         
         return 129.0
