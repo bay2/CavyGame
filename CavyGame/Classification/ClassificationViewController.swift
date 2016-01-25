@@ -12,13 +12,16 @@ class ClassificationViewController: UIViewController, ClassificationCellProtocol
 
     @IBOutlet weak var classTableView: UITableView!
     var classData: Array<Classification> = Array<Classification>()
+    var cellTagViewCacheFlag: Array<Bool> = Array<Bool>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         classTableView.tableFooterView = UIView()
         classTableView.tableHeaderView = UIView()
+        MJRefreshAdapter.setupRefreshHeader(classTableView, target: self, action: "loadData")
         loadData()
+        
         
         // Do any additional setup after loading the view.
     }
@@ -37,12 +40,18 @@ class ClassificationViewController: UIViewController, ClassificationCellProtocol
         HttpHelper<ClassificationMsg>.getClassificationInfo { (result) -> () in
             
             if result == nil {
+                FVCustomAlertView.shareInstance.showDefaultCustomAlertOnView(Common.rootViewController.view, withTitle: Common.LocalizedStringForKey("net_err"), delayTime: Common.alertDelayTime)
+                self.classTableView.mj_header.endRefreshing()
                 return
             }
             
             self.classData = result!.data
             
+            self.cellTagViewCacheFlag.removeAll(keepCapacity: true)
+            self.cellTagViewCacheFlag = Array<Bool>(count: self.classData.count, repeatedValue: false)
+            
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.classTableView.mj_header.endRefreshing()
                 self.classTableView.reloadData()
             })
             
@@ -94,8 +103,14 @@ extension ClassificationViewController {
         cell.setTagViewNum(classData[indexPath.section].tagArray.count, indexPath: indexPath)
         cell.classImgUrl = classData[indexPath.section].class_imgurl!
         
-        return cell
+        // 清除缓存
+        if cellTagViewCacheFlag[indexPath.section] == false {
+            let key = "\(indexPath.section)-\(indexPath.row)"
+            cell.cellTagViewCache.removeObjectForKey(key)
+            cellTagViewCacheFlag[indexPath.section] = true
+        }
         
+        return cell
     }
     
     /**

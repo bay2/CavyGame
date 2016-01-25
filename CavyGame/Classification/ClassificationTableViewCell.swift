@@ -242,8 +242,6 @@ class ClassificationTableViewCell: UITableViewCell {
                 } else {
                     make.top.equalTo(tagViews).offset(CGFloat(index / columnNum) * (tagViewSize.height + tagRowGap))
                 }
-                
- 
             }
             
             // 分割线布局
