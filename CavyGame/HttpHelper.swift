@@ -881,7 +881,7 @@ struct PrefectureListRet : ResponseConvertible {
 }
 
 /**
-*  +++排行名称列表
+* 排行名称列表
 */
 struct RankList {
     var rankname: String?
@@ -894,7 +894,7 @@ struct RankList {
 }
 
 /**
-*  +++排行名称列表结构
+*  排行名称列表结构
 */
 
 struct RankListInfo : ResponseConvertible {
@@ -1140,8 +1140,6 @@ public class HttpHelper< T:ResponseConvertible>{
         reqGet(url, parameters: parameters, completionHandlerRet: completionHandlerRet)
     }
     
-    // MARK: 分类【排行】新加的两个方法
-    
     /**
     获取游戏排行榜列表
     
@@ -1152,7 +1150,6 @@ public class HttpHelper< T:ResponseConvertible>{
     static public func getRankingListName(completionHandlerRet:(T.Result?)->()) {
         
         let url = serverAddr + "mobileIndex/index?"
-//        let url = "http://115.28.144.243:8088/gamecenter/mobileIndex/index?"
 
         let parameters: Dictionary<String, AnyObject> = ["ac":"newranking"];
         
@@ -1181,8 +1178,6 @@ public class HttpHelper< T:ResponseConvertible>{
         reqGet(url, parameters: parameters, completionHandlerRet: completionHandlerRet)
     }
     
-    
-
     /**
     获取游戏排行信息请求
     

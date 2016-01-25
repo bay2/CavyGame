@@ -26,7 +26,6 @@ class HomeViewController: UIViewController, DMDynamicPageViewControllerDelegate,
     
     var viewController1 : RecommendationVC!
     var viewController2 : RankListVC!
-   // var viewController2 : RankingVC!
     var viewController3 : ClassificationTbVC!
     var viewController4 : PrefectureViewController!
     
@@ -187,7 +186,6 @@ class HomeViewController: UIViewController, DMDynamicPageViewControllerDelegate,
         
         viewController1 = RecommendationVC()
         viewController2 = RankListVC()
-        // viewController2 = RankingVC()
         viewController3 = ClassificationTbVC()
         viewController4 = Common.getViewControllerWithIdentifier("Prefecture", identifier: "PrefectureView") as? PrefectureViewController
         
