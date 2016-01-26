@@ -26,7 +26,7 @@ class HomeViewController: UIViewController, DMDynamicPageViewControllerDelegate,
     
     var viewController1 : RecommendationVC!
     var viewController2 : RankingVC!
-    var viewController3 : ClassificationTbVC!
+    var viewController3 : ClassificationViewController!
     var viewController4 : PrefectureViewController!
     
     var loadDataCnt : Int = 0    // 加载推荐 分类 排行  成功的数量
@@ -186,7 +186,7 @@ class HomeViewController: UIViewController, DMDynamicPageViewControllerDelegate,
         
         viewController1 = RecommendationVC()
         viewController2 = RankingVC()
-        viewController3 = ClassificationTbVC()
+        viewController3 = UIStoryboard(name: "Classification", bundle: nil).instantiateViewControllerWithIdentifier("ClassificationViewController") as! ClassificationViewController
         viewController4 = Common.getViewControllerWithIdentifier("Prefecture", identifier: "PrefectureView") as? PrefectureViewController
         
         viewController1.view.backgroundColor = Common.tableBackColor

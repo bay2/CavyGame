@@ -10,7 +10,7 @@ import UIKit
 
 class ClassAllItemTbVC: GameListBaseTableViewController {
 
-    var gameClassID : String!
+    var gameTagID : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +47,7 @@ class ClassAllItemTbVC: GameListBaseTableViewController {
         
         var nowPageSize = self.currPage * self.pageSize
         
-        HttpHelper<GameListInfo>.getClassAllItemList(gameClassID, pagenum: 1, pagesize: nowPageSize) { (result) -> () in
+        HttpHelper<GameListInfo>.getClassAllItemList(gameTagID, pagenum: 1, pagesize: nowPageSize) { (result) -> () in
             
             if result == nil{
                 dispatch_async(dispatch_get_main_queue(), {
@@ -88,7 +88,7 @@ class ClassAllItemTbVC: GameListBaseTableViewController {
         }
         
         self.currPage++
-        HttpHelper<GameListInfo>.getClassAllItemList(gameClassID, pagenum: currPage, pagesize: pageSize) { (result) -> () in
+        HttpHelper<GameListInfo>.getClassAllItemList(gameTagID, pagenum: currPage, pagesize: pageSize) { (result) -> () in
             
             if result == nil{
                 dispatch_async(dispatch_get_main_queue(), {

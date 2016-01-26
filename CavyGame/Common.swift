@@ -362,6 +362,22 @@ extension String {
     
 }
 
+extension UIImageView {
+    
+    convenience init(color: UIColor) {
+        
+        var rect = CGRectMake(0, 0, 800, 800)
+        UIGraphicsBeginImageContext(rect.size)
+        var context = UIGraphicsGetCurrentContext()
+        CGContextSetFillColorWithColor(context, color.CGColor)
+        CGContextFillRect(context, rect)
+        var img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.init(image: img)
+    }
+    
+}
+
 extension UIButton {
     
     func DrawImageFromColor(coclor : UIColor) -> UIImage {

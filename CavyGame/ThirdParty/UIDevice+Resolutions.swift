@@ -63,3 +63,14 @@ import Foundation
         return resolution
         
     }
+
+    func isIPhone() -> Bool {
+        
+        var model : String = UIDevice.currentDevice().model
+        if model.componentsSeparatedByString("iPhone").count > 1 {
+            return true
+        }
+        
+        return false
+        
+    }
