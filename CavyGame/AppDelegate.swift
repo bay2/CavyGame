@@ -34,7 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         
         initConfig()
         
-        
         if 8.0 <= Common.getDeviceIosVersion() {
             
             //ios 8 注册 apns

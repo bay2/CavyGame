@@ -21,6 +21,7 @@ class ClassificationViewController: UIViewController, ClassificationCellProtocol
         classTableView.tableHeaderView = UIView()
         MJRefreshAdapter.setupRefreshHeader(classTableView, target: self, action: "loadData")
         loadData()
+        classTableView.fd_debugLogEnabled = true
         
         
         // Do any additional setup after loading the view.
@@ -106,6 +107,7 @@ extension ClassificationViewController {
         // 清除缓存
         if cellTagViewCacheFlag[indexPath.section] == false {
             let key = "\(indexPath.section)-\(indexPath.row)"
+            NSLog("clean cache \(key)")
             cell.cellTagViewCache.removeObjectForKey(key)
             cellTagViewCacheFlag[indexPath.section] = true
         }
@@ -123,7 +125,7 @@ extension ClassificationViewController {
     */
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        return tableView.fd_heightForCellWithIdentifier("ClassificationCell", cacheByIndexPath: indexPath, configuration: { (cell) -> Void in
+        return tableView.fd_heightForCellWithIdentifier("ClassificationCell", configuration: { (cell) -> Void in
             
             let classCell = cell as! ClassificationTableViewCell
             classCell.fd_enforceFrameLayout = true

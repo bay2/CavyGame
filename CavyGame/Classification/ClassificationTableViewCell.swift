@@ -18,7 +18,7 @@ class ClassificationTableViewCell: UITableViewCell {
     var tagViewNum: Int = 0
     var cellTagViewList: Array<UIView> = Array<UIView>()
     var cellTagView = UIView()
-    var cellTagViewCache = NSCache()
+//    var cellTagViewCache = NSCache()
     
     var tagRowNum: Int {
         get {
@@ -196,16 +196,15 @@ class ClassificationTableViewCell: UITableViewCell {
         
         deleteCellView()
         
-        // 读取视图缓存
-        if let tagViews = cellTagViewCache.objectForKey(key) as? UIView {
-            
-            addCellTabView(tagViews)
-            return
-        }
+//        // 读取视图缓存
+//        if let tagViews = cellTagViewCache.objectForKey(key) as? UIView {
+//            
+//            addCellTabView(tagViews)
+//            return
+//        }
         
         let tagViews = UIView()
         addCellTabView(tagViews)
-        
         
         for index in 0 ..< tagViewNum {
             
@@ -261,8 +260,8 @@ class ClassificationTableViewCell: UITableViewCell {
             }
         }
         
-        // 缓存视图
-        cellTagViewCache.setObject(tagViews, forKey: key)
+//        // 缓存视图
+//        cellTagViewCache.setObject(tagViews, forKey: key)
         
     }
     
