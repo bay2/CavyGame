@@ -203,14 +203,14 @@ class RankingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if rankListArray.isEmpty {
             return 0
         }
-        let rankTableView = scrollView.viewWithTag(2000 + currentIndex) as! RankTableView
+        let rankTableView = tableView as! RankTableView
         
         return rankTableView.gameListInfo.gameList.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
-        let rankTableView = scrollView.viewWithTag(2000 + currentIndex) as! RankTableView
+        let rankTableView = tableView as! RankTableView
         
         var cell = rankTableView.dequeueReusableCellWithIdentifier("GameInfoTableViewCellid", forIndexPath: indexPath) as! GameInfoTableViewCell
         

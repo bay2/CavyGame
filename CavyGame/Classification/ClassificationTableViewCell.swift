@@ -180,7 +180,8 @@ class ClassificationTableViewCell: UITableViewCell {
         self.contentView.addSubview(view)
         
         view.snp_makeConstraints { (make) -> Void in
-            make.top.bottom.right.equalTo(self.contentView).offset(frameGap)
+            make.top.equalTo(self.contentView).offset(frameGap)
+            make.bottom.right.equalTo(self.contentView).offset(-frameGap)
             make.left.equalTo(classImgView.snp_right).offset(gap)
         }
         
@@ -231,7 +232,7 @@ class ClassificationTableViewCell: UITableViewCell {
                 
                 // pad 一行的情况居中对齐
                 if !isIPhone() && tagViewNum <= columnNum {
-                    make.centerX.equalTo(tagViews)
+                    make.centerY.equalTo(tagViews)
                     return
                 }
                 
