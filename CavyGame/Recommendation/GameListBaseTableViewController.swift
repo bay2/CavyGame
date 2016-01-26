@@ -128,6 +128,15 @@ class GameListBaseTableViewController: RefreshTableViewController {
         })
     }
 
+    func updateVersion(){
+        
+        for item in self.gameListInfo.gameList{
+            if (item.gameSubInfo != nil){
+                DownloadManager.getInstance().needUpdate(item.gameSubInfo.gameid, version: item.gameSubInfo.version, downUrl : item.gameSubInfo.downurl)
+            }
+        }
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -141,14 +150,7 @@ class GameListBaseTableViewController: RefreshTableViewController {
         self.tableView.tableHeaderView = headerView
     }
     
-    func updateVersion(){
-        
-        for item in self.gameListInfo.gameList{
-            if (item.gameSubInfo != nil){
-                DownloadManager.getInstance().needUpdate(item.gameSubInfo.gameid, version: item.gameSubInfo.version, downUrl : item.gameSubInfo.downurl)
-            }
-        }
-    }
+
 }
 
 extension GameListBaseTableViewController : UITableViewDataSource, UITableViewDelegate{
