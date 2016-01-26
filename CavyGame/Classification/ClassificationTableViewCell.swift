@@ -41,7 +41,7 @@ class ClassificationTableViewCell: UITableViewCell {
         if isIPhone() {
             return 128
         } else {
-            return 160
+            return 144
         }
     }
     
@@ -60,7 +60,7 @@ class ClassificationTableViewCell: UITableViewCell {
         if isIPhone() {
             return CGSizeMake(80, 80)
         } else {
-            return CGSizeMake(120, 120)
+            return CGSizeMake(92, 92)
         }
     }
     
