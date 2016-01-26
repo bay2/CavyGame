@@ -196,7 +196,6 @@
 		B34AC8CC1B788C830038FC3C /* String+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34AC8C81B788C830038FC3C /* String+Path.swift */; };
 		B34AC8CD1B788C830038FC3C /* UIImageView+WebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34AC8C91B788C830038FC3C /* UIImageView+WebImage.swift */; };
 		B34AC8CE1B788C830038FC3C /* WebImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34AC8CA1B788C830038FC3C /* WebImageManager.swift */; };
-		B34C4B631B857D1300043918 /* ClassAllItemTbVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34C4B621B857D1300043918 /* ClassAllItemTbVC.swift */; };
 		B34D0E571B78481F009D6FF1 /* RecommendationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34D0E561B78481F009D6FF1 /* RecommendationVC.swift */; };
 		B34D0E5B1B785208009D6FF1 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34D0E5A1B785208009D6FF1 /* MainTabBarController.swift */; };
 		B34D0E5D1B7852F3009D6FF1 /* MainTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34D0E5C1B7852F3009D6FF1 /* MainTabBarController.xib */; };
@@ -562,7 +561,6 @@
 		B34AC8C81B788C830038FC3C /* String+Path.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Path.swift"; sourceTree = "<group>"; };
 		B34AC8C91B788C830038FC3C /* UIImageView+WebImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+WebImage.swift"; sourceTree = "<group>"; };
 		B34AC8CA1B788C830038FC3C /* WebImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebImageManager.swift; sourceTree = "<group>"; };
-		B34C4B621B857D1300043918 /* ClassAllItemTbVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassAllItemTbVC.swift; sourceTree = "<group>"; };
 		B34D0E561B78481F009D6FF1 /* RecommendationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationVC.swift; sourceTree = "<group>"; };
 		B34D0E5A1B785208009D6FF1 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		B34D0E5C1B7852F3009D6FF1 /* MainTabBarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTabBarController.xib; sourceTree = "<group>"; };
@@ -2452,7 +2450,7 @@
 				);
 				MACH_O_TYPE = mh_execute;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_SWIFT_FLAGS = "-DSNAPKIT_DEPLOYMENT_LEGACY ";
+				OTHER_SWIFT_FLAGS = "-D DEBUG -DSNAPKIT_DEPLOYMENT_LEGACY ";
 				PRODUCT_MODULE_NAME = "Swift$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = CavyGame;
 				PROVISIONING_PROFILE = "";

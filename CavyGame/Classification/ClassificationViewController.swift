@@ -20,8 +20,6 @@ class ClassificationViewController: UIViewController, ClassificationCellProtocol
         classTableView.tableHeaderView = UIView()
         MJRefreshAdapter.setupRefreshHeader(classTableView, target: self, action: "loadData")
         loadData()
-        classTableView.fd_debugLogEnabled = true
-        
         
         // Do any additional setup after loading the view.
     }
@@ -40,8 +38,10 @@ class ClassificationViewController: UIViewController, ClassificationCellProtocol
         HttpHelper<ClassificationMsg>.getClassificationInfo { (result) -> () in
             
             if result == nil {
-                FVCustomAlertView.shareInstance.showDefaultCustomAlertOnView(Common.rootViewController.view, withTitle: Common.LocalizedStringForKey("net_err"), delayTime: Common.alertDelayTime)
-                self.classTableView.mj_header.endRefreshing()
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    FVCustomAlertView.shareInstance.showDefaultCustomAlertOnView(self.view, withTitle: Common.LocalizedStringForKey("net_err"), delayTime: Common.alertDelayTime)
+                    self.classTableView.mj_header.endRefreshing()
+                })
                 return
             }
             

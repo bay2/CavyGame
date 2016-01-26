@@ -959,7 +959,7 @@ struct ClassificationMsg: ResponseConvertible {
     typealias Result = ClassificationMsg
     static func convertFromData(response: HTTPResponse!) -> (Result?) {
         
-        if response == nil {
+        if response.responseObject == nil {
             return nil
         }
         
