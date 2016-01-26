@@ -18,7 +18,8 @@
 		466C008F1AD92447002ED354 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C008E1AD92447002ED354 /* LeftViewController.swift */; };
 		4CA2016D1C55B00300C145FB /* GameListBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA2016C1C55B00300C145FB /* GameListBaseTableViewController.swift */; };
 		4CA2016F1C55B05700C145FB /* RefreshTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA2016E1C55B05700C145FB /* RefreshTableViewController.swift */; };
-		4CBB78CD1C4F46F7005459C7 /* RankListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB78CC1C4F46F7005459C7 /* RankListVC.swift */; };
+		4CA201711C56059200C145FB /* RankingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA201701C56059200C145FB /* RankingVC.swift */; };
+		4CA201751C562B1200C145FB /* RankTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA201741C562B1200C145FB /* RankTableView.swift */; };
 		9101B40F1B820BEB00C4B057 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101B40D1B820BEB00C4B057 /* SearchViewController.swift */; };
 		9101B4121B82FD7F00C4B057 /* HotKeyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101B4111B82FD7F00C4B057 /* HotKeyTableViewCell.swift */; };
 		9101B4191B83132D00C4B057 /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101B4181B83132D00C4B057 /* AppInfoViewController.swift */; };
@@ -328,7 +329,8 @@
 		484CD2A70185340F9371FBA9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CA2016C1C55B00300C145FB /* GameListBaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameListBaseTableViewController.swift; sourceTree = "<group>"; };
 		4CA2016E1C55B05700C145FB /* RefreshTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshTableViewController.swift; sourceTree = "<group>"; };
-		4CBB78CC1C4F46F7005459C7 /* RankListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankListVC.swift; sourceTree = "<group>"; };
+		4CA201701C56059200C145FB /* RankingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingVC.swift; sourceTree = "<group>"; };
+		4CA201741C562B1200C145FB /* RankTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankTableView.swift; sourceTree = "<group>"; };
 		9101B40D1B820BEB00C4B057 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = Search/SearchViewController.swift; sourceTree = "<group>"; };
 		9101B4111B82FD7F00C4B057 /* HotKeyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HotKeyTableViewCell.swift; path = Search/HotKeyTableViewCell.swift; sourceTree = "<group>"; };
 		9101B4181B83132D00C4B057 /* AppInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppInfoViewController.swift; path = AppInfo/AppInfoViewController.swift; sourceTree = "<group>"; };
@@ -855,7 +857,8 @@
 		4CBB78C71C4F4664005459C7 /* RankList */ = {
 			isa = PBXGroup;
 			children = (
-				4CBB78CC1C4F46F7005459C7 /* RankListVC.swift */,
+				4CA201741C562B1200C145FB /* RankTableView.swift */,
+				4CA201701C56059200C145FB /* RankingVC.swift */,
 			);
 			path = RankList;
 			sourceTree = "<group>";
@@ -2099,6 +2102,7 @@
 				B36B95A81B8C85D000DD0065 /* DDRange.m in Sources */,
 				B36B95C11B8C85D000DD0065 /* ContextFilterLogFormatter.m in Sources */,
 				916F4C221BB2A7EF0027E6AC /* SDWebImagePrefetcher.m in Sources */,
+				4CA201711C56059200C145FB /* RankingVC.swift in Sources */,
 				B34D0E571B78481F009D6FF1 /* RecommendationVC.swift in Sources */,
 				C7A2535B1B8186AF000A62ED /* FMDatabaseAdditions.m in Sources */,
 				B3288A671B74AC040042CFDB /* DMDynamicViewController.swift in Sources */,
@@ -2132,7 +2136,6 @@
 				C7A253621B8186AF000A62ED /* PropertyListing.m in Sources */,
 				B304DF001B70C891002BDF88 /* FeedbackViewController.swift in Sources */,
 				B304DF101B70C891002BDF88 /* HTTPTask.swift in Sources */,
-				4CBB78CD1C4F46F7005459C7 /* RankListVC.swift in Sources */,
 				4659330B1AD7F60700969878 /* AppDelegate.swift in Sources */,
 				916F4C291BB2A7EF0027E6AC /* UIView+WebCacheOperation.m in Sources */,
 				B36B95AA1B8C85D000DD0065 /* HTTPConnection.m in Sources */,
@@ -2148,6 +2151,7 @@
 				B35873701B7F24E500521E81 /* ClassItemVC.swift in Sources */,
 				B35539381B8FF9A9007DC474 /* BDLocationManager.swift in Sources */,
 				C7A253341B8186AF000A62ED /* AFURLSessionManager.m in Sources */,
+				4CA201751C562B1200C145FB /* RankTableView.swift in Sources */,
 				B36B95AE1B8C85D000DD0065 /* MultipartMessageHeader.m in Sources */,
 				916F4C241BB2A7EF0027E6AC /* UIImage+GIF.m in Sources */,
 				916F4C1F1BB2A7EF0027E6AC /* SDWebImageDownloader.m in Sources */,
