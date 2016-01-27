@@ -994,6 +994,11 @@ struct RankListInfo : ResponseConvertible {
     }
     typealias Result = RankListInfo
     static func convertFromData(response: HTTPResponse!) -> (RankListInfo?) {
+        
+        if response.error != nil {
+            return nil
+        }
+        
         if nil == response.responseObject {
             return nil
         }
