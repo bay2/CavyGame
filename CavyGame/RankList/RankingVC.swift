@@ -15,9 +15,9 @@ class RankingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var rankListHeight :CGFloat {
         
         if resolution() == .UIDeviceResolution_iPhoneRetina4 {
-            return 30 - 0.3
+            return 30
         } else {
-            return 40 - 0.3
+            return 40
         }
         
     }
@@ -77,11 +77,6 @@ class RankingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             rankTableView.backgroundColor = Common.tableBackColor
             
-            var leftBtn = UIBarButtonItem(image: UIImage(named: "icon_back"), style: UIBarButtonItemStyle.Bordered, target: self, action: Selector("onClickBack"))
-            leftBtn.imageInsets = UIEdgeInsetsMake(0, -5, 0, -5)
-            
-            self.navigationItem.leftBarButtonItem = leftBtn
-            
             rankTableView.separatorInset = UIEdgeInsetsZero
             
             rankTableView.separatorStyle = UITableViewCellSeparatorStyle.None
@@ -127,7 +122,7 @@ class RankingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             perListButton.titleLabel?.textAlignment = NSTextAlignment.Center
             perListButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
-            perListButton.frame = CGRectMake(perListWidth * CGFloat(i), 0, perListWidth, rankListHeight)
+            perListButton.frame = CGRectMake(perListWidth * CGFloat(i), 0, perListWidth, rankListHeight - 0.3)
             perListButton.titleLabel?.font = UIFont.systemFontOfSize(14)
             
             if i == 0 {
