@@ -214,4 +214,21 @@ extension ClassificationViewController {
         
     }
     
+    /**
+    用于消除Header section 随tableView 移动的黏性
+    
+    - parameter scrollView: 
+    */
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        
+        var sectionHeaderHeight: CGFloat = 5
+        
+        if scrollView.contentOffset.y <= sectionHeaderHeight && scrollView.contentOffset.y >= 0{
+            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0)
+        } else if scrollView.contentOffset.y >= sectionHeaderHeight {
+            scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0)
+        }
+        
+    }
+    
 }
