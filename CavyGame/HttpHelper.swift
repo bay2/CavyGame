@@ -1439,8 +1439,8 @@ public class HttpHelper< T:ResponseConvertible>{
         
         let url = serverAddr + "appIndex/index?"
         
-        let parameters: Dictionary<String, AnyObject> = ["ac":"getclassificationmore",
-            "classid":"\(gameClassID)",
+        let parameters: Dictionary<String, AnyObject> = ["ac":"getmarkgames",
+            "mark_id":"\(gameClassID)",
             "pagenum":"\(pagenum)",
             "pagesize":"\(pagesize)"]
         
