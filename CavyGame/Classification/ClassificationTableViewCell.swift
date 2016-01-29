@@ -19,7 +19,11 @@ class ClassificationTableViewCell: UITableViewCell {
         
         get {
             if isIPhone() {
-                return 20
+                if resolution() == .UIDeviceResolution_iPhoneRetina4 {
+                    return 20
+                } else {
+                    return 30
+                }
             } else {
                 return 45
             }
