@@ -53,8 +53,8 @@ class ClassTagView: UIView {
     func defineSubview() {
         
         tagTextLab.textColor = UIColor(hexString: tagTxtLabColor)
-        tagTextLab.numberOfLines = 2
-        tagTextLab.font = UIFont.systemFontOfSize(14)
+        tagTextLab.numberOfLines = 1
+        tagTextLab.font = UIFont.systemFontOfSize(15)
         self.addSubview(tagImgView)
         self.addSubview(tagTextLab)
         

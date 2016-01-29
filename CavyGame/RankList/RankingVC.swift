@@ -176,7 +176,6 @@ class RankingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.currentListColor()
         
         self.scrollView.setContentOffset(CGPointMake(screenRect.width * CGFloat(self.currentIndex), 0), animated: true)
-        print("排行\(currentIndex)\n")
 
         let catchTableView = self.scrollView.viewWithTag(2000 + currentIndex) as! RankTableView
         

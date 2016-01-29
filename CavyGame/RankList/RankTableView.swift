@@ -74,7 +74,7 @@ class RankTableView: UITableView {
         }
         
         self.currPage++
-        HttpHelper<GameListInfo>.getRankList (currPage, pagesize : pageSize, completionHandlerRet:{(result) -> () in
+        HttpHelper<GameListInfo>.getRankingList(currPage, ranktype: rankType, pagesize: pageSize, completionHandlerRet:{(result) -> () in
             
             if result == nil{
                 
