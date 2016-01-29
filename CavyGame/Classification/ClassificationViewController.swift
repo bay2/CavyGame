@@ -134,6 +134,11 @@ extension ClassificationViewController {
     - returns: 高度
     */
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        if section != 0 {
+            return 8
+        }
+        
         return 5
     }
     

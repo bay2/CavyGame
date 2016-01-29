@@ -24,6 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         
         // 改变 navigation bar 的背景色
         var navigationBarAppearace = UINavigationBar.appearance()
+        
+        var shadowImage = UIImageView(color: Common.TitleBarColor!)
+        shadowImage.frame = CGRectMake(0, 0, Common.screenWidth, 1)
+//        navigationBarAppearace.setBackgroundImage(shadowImage.image, forBarMetrics: UIBarMetrics.Default)
+        navigationBarAppearace.shadowImage = shadowImage.image
+        
 
         navigationBarAppearace.barTintColor = Common.TitleBarColor
         

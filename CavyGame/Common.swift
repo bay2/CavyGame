@@ -175,20 +175,9 @@ struct Common {
         var defaults = NSUserDefaults.standardUserDefaults()
         var allLanguages: AnyObject? = defaults.objectForKey("AppleLanguages")
         var preferredLang: AnyObject? = allLanguages?.objectAtIndex(0)
-        var lan = allLanguages?.objectAtIndex(0) as! NSString
+        var lan = allLanguages?.objectAtIndex(0) as! String
         
-       
-        if lan.rangeOfString("zh-Hans").location != NSNotFound {
-            return "zh"
-        } else if lan.rangeOfString("zh-Hant").location  != NSNotFound {
-            return "zh_tw"
-        } else if lan.rangeOfString("zh-HK").location  != NSNotFound {
-            return "zh_tw"
-        } else if lan.rangeOfString("ja").location  != NSNotFound {
-            return "ja"
-        }
-        
-        return "en"
+        return lan
     }
     
     /**
@@ -409,6 +398,24 @@ extension UIButton {
     
 }
 
+extension UIImageView {
+    
+    func DrawImageFromColor(coclor : UIColor) -> UIImage {
+        
+        var rect = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)
+        
+        UIGraphicsBeginImageContext(rect.size)
+        var context = UIGraphicsGetCurrentContext()
+        CGContextSetFillColorWithColor(context, coclor.CGColor)
+        CGContextFillRect(context, rect)
+        var img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return img
+        
+    }
+    
+}
 
 extension UITableView {
         

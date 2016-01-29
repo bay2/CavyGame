@@ -13,44 +13,74 @@ class ClassificationTableViewCell: UITableViewCell {
     var classImgView = UIImageView()
     var tagViewDelegate: ClassificationCellProtocol?
     let splitLineColor = "#868686"
-    let frameGap: CGFloat = 24
+    
+    // 左右边框间距
+    var frameGapLeft: CGFloat {
+        
+        get {
+            if isIPhone() {
+                return 20
+            } else {
+                return 45
+            }
+        }
+    }
+    
+    // 大图标与上下边框间距
+    let frameGapTop: CGFloat = 15
+    
     var curIndexPath: NSIndexPath = NSIndexPath(forRow: 0, inSection: 0)
     var tagViewNum: Int = 0
     var cellTagViewList: Array<UIView> = Array<UIView>()
     var cellTagView = UIView()
-//    var cellTagViewCache = NSCache()
     
+    // 这个cell的tag的高度
+    var tagViewsHeight: CGFloat {
+        get {
+            if tagRowNum > 1 {
+                return (CGFloat(tagRowNum - 1) * tagRowGap) + (CGFloat(tagRowNum) * tagRowGap)
+            }
+            
+            return 20
+        }
+    }
+    
+    // tag 行数
     var tagRowNum: Int {
         get {
             return ((tagViewNum / columnNum) + (tagViewNum % columnNum))
         }
     }
     
+    // 每行之间的间隙
     var tagRowGap: CGFloat {
         
         get  {
-            if isIPhone() {
-                return 0
-            } else {
-                return 20
-            }
+            return 20
         }
     }
     
+    // cell最小高度
     private var defaultCellHeight: Float {
         if isIPhone() {
-            return 128
+            if resolution() == .UIDeviceResolution_iPhoneRetina4 {
+                return 104
+            } else {
+                return 120
+            }
+           
         } else {
-            return 144
+            return 150
         }
     }
     
+    // tag大小
     private var tagViewSize: CGSize {
         
         if isIPhone() {
-            return CGSizeMake(80, 40)
+            return CGSizeMake(90, 20)
         } else {
-            return CGSizeMake(100, 40)
+            return CGSizeMake(100, 20)
         }
         
     }
@@ -58,12 +88,19 @@ class ClassificationTableViewCell: UITableViewCell {
     // 分类图片大小
     private var classImgViewSize: CGSize {
         if isIPhone() {
-            return CGSizeMake(80, 80)
+           
+            if resolution() == .UIDeviceResolution_iPhoneRetina4 {
+                return CGSizeMake(72, 72)
+            } else {
+                return CGSizeMake(90, 90)
+            }
+            
         } else {
-            return CGSizeMake(92, 92)
+            return CGSizeMake(120, 120)
         }
     }
     
+    // 分类大图标url
     var classImgUrl: String = "" {
         
         didSet {
@@ -90,7 +127,7 @@ class ClassificationTableViewCell: UITableViewCell {
     var gap : Float {
         
         get {
-            return Float((Common.screenWidth - (classImgViewSize.width + (frameGap * 2) + (CGFloat(columnNum) * tagViewSize.width))) / CGFloat(columnNum))
+            return Float((Common.screenWidth - (classImgViewSize.width + (frameGapLeft * 2) + (CGFloat(columnNum) * tagViewSize.width))) / CGFloat(columnNum))
         }
     }
     
@@ -140,7 +177,7 @@ class ClassificationTableViewCell: UITableViewCell {
         classImgView.snp_makeConstraints { (make) -> Void in
             make.size.equalTo(classImgViewSize)
             make.centerY.equalTo(self.contentView)
-            make.left.equalTo(self.contentView).offset(frameGap)
+            make.left.equalTo(self.contentView).offset(frameGapLeft)
         }
         
 
@@ -180,8 +217,9 @@ class ClassificationTableViewCell: UITableViewCell {
         self.contentView.addSubview(view)
         
         view.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(self.contentView).offset(frameGap)
-            make.bottom.right.equalTo(self.contentView).offset(-frameGap)
+            make.centerY.equalTo(self.contentView)
+            make.height.equalTo(tagViewsHeight)
+            make.right.equalTo(self.contentView).offset(-gap)
             make.left.equalTo(classImgView.snp_right).offset(gap)
         }
         
@@ -193,7 +231,7 @@ class ClassificationTableViewCell: UITableViewCell {
     */
     func defineTagView(indexPath: NSIndexPath) {
         
-        var key = "\(indexPath.section)-\(indexPath.row)"
+//        var key = "\(indexPath.section)-\(indexPath.row)"
         
         deleteCellView()
         
@@ -231,21 +269,21 @@ class ClassificationTableViewCell: UITableViewCell {
                 }
                 
                 // pad 一行的情况居中对齐
-                if !isIPhone() && tagViewNum <= columnNum {
+                if !isIPhone() && tagRowNum == 1 {
                     make.centerY.equalTo(tagViews)
-                    return
-                }
-                
-                if index < columnNum {
-                    // 第一行的布局
-                    make.top.equalTo(tagViews)
                 } else {
-                    make.top.equalTo(tagViews).offset(CGFloat(index / columnNum) * (tagViewSize.height + tagRowGap))
+                    
+                    if index < columnNum {
+                        // 第一行的布局
+                        make.top.equalTo(tagViews)
+                    } else {
+                        make.top.equalTo(tagViews).offset(CGFloat(index / columnNum) * (tagViewSize.height + tagRowGap))
+                    }
                 }
             }
             
             // 分割线布局
-            if index % columnNum == 0 && index < tagViewNum - 1 {
+            if index < tagViewNum - 1 && index % columnNum != columnNum - 1 {
                 
                 var splitLine = UIView()
                 tagViews.addSubview(splitLine)
@@ -255,7 +293,9 @@ class ClassificationTableViewCell: UITableViewCell {
                     
                     make.size.equalTo(CGSize(width: 0.3, height: 14))
                     make.centerY.equalTo(tagView!)
-                    make.left.equalTo(tagView!.snp_right).offset((gap - 0.3) / Float(columnNum))
+                    var offsetVelue = Int((gap - 0.3) / Float(columnNum))
+
+                    make.left.lessThanOrEqualTo(tagView!.snp_right).offset(offsetVelue)
                     
                 }
             }
@@ -270,11 +310,11 @@ class ClassificationTableViewCell: UITableViewCell {
         
         var defaultSize = CGSizeMake(Common.screenWidth, CGFloat(defaultCellHeight))
         
-        if tagViewNum < defaultTagNum {
+        if tagViewNum <= defaultTagNum {
             return defaultSize
         }
         
-        return CGSizeMake(Common.screenWidth, CGFloat(tagRowNum) * tagViewSize.height + frameGap * 2)
+        return CGSizeMake(Common.screenWidth, CGFloat(tagRowNum) * tagViewSize.height + frameGapTop * 2 + CGFloat(tagRowNum - 1) * tagRowGap)
         
     }
 

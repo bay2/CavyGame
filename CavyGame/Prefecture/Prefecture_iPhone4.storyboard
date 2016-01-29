@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -9,7 +9,7 @@
         <!--Prefecture View Controller-->
         <scene sceneID="b2O-Te-a0F">
             <objects>
-                <viewController storyboardIdentifier="PrefectureView" id="M48-tu-1Kq" customClass="PrefectureViewController" customModule="CavyGame" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PrefectureView" id="M48-tu-1Kq" customClass="PrefectureViewController" customModule="SwiftCavyGame" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HyM-MB-YB4"/>
                         <viewControllerLayoutGuide type="bottom" id="0MJ-rO-pnn"/>
@@ -23,14 +23,14 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="prefectureCell" rowHeight="192" id="87o-DC-5hz" customClass="PrefectureTableViewCell" customModule="CavyGame" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="prefectureCell" rowHeight="192" id="87o-DC-5hz" customClass="PrefectureTableViewCell" customModule="SwiftCavyGame" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="87o-DC-5hz" id="CsA-ew-ukN">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJ5-42-aZp">
-                                                    <rect key="frame" x="5" y="4" width="310" height="182.5"/>
+                                                    <rect key="frame" x="5" y="4" width="310" height="183"/>
                                                     <animations/>
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -74,7 +74,7 @@
         <!--Title-->
         <scene sceneID="bZ1-UP-J4J">
             <objects>
-                <viewController storyboardIdentifier="PrefectureListView" id="zEa-UG-IXE" customClass="PrefecturListViewController" customModule="CavyGame" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PrefectureListView" id="zEa-UG-IXE" customClass="PrefecturListViewController" customModule="SwiftCavyGame" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="g2r-m5-Ofv"/>
                         <viewControllerLayoutGuide type="bottom" id="hxD-5s-dAQ"/>
@@ -88,18 +88,18 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="prefectureListImage" rowHeight="138" id="Cam-YP-doc" customClass="PrefectureListImageTableViewCell" customModule="CavyGame" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="prefectureListImage" rowHeight="138" id="Cam-YP-doc" customClass="PrefectureListImageTableViewCell" customModule="SwiftCavyGame" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cam-YP-doc" id="q2D-r2-aFe">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eTZ-CW-zOc">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="137.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="138"/>
                                                     <animations/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Nd-9u-kah" userLabel="ImagebannreMask">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="137.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="138"/>
                                                     <animations/>
                                                 </imageView>
                                             </subviews>
@@ -121,7 +121,7 @@
                                             <outlet property="preImage" destination="eTZ-CW-zOc" id="vSq-rb-OT2"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="prefectureListInfo" rowHeight="91" id="qBG-1W-G7J" customClass="PrefectureInfoTableViewCell" customModule="CavyGame" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="prefectureListInfo" rowHeight="91" id="qBG-1W-G7J" customClass="PrefectureInfoTableViewCell" customModule="SwiftCavyGame" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qBG-1W-G7J" id="Drf-hz-WwT">
@@ -175,7 +175,7 @@
                                             <outlet property="prefectureTitle" destination="msD-1h-Nt9" id="GFG-rA-rUk"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="GameInfoTableViewCellid" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameInfoTableViewCellid" rowHeight="85" id="oTG-YV-HfB" customClass="GameInfoTableViewCell" customModule="CavyGame" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="GameInfoTableViewCellid" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameInfoTableViewCellid" rowHeight="85" id="oTG-YV-HfB" customClass="GameInfoTableViewCell" customModule="SwiftCavyGame" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="567" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oTG-YV-HfB" id="NSc-PK-Li8">
@@ -190,7 +190,7 @@
                                                         <constraint firstAttribute="width" secondItem="iSE-Bm-Y2u" secondAttribute="height" multiplier="1:1" id="MMe-AE-1RJ"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PpA-qz-si7" customClass="PrefectureDownloadWithProgressButton" customModule="CavyGame" customModuleProvider="target">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PpA-qz-si7" customClass="PrefectureDownloadWithProgressButton" customModule="SwiftCavyGame" customModuleProvider="target">
                                                     <rect key="frame" x="243" y="10" width="60" height="25"/>
                                                     <animations/>
                                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -207,7 +207,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZP-VZ-mdK">
-                                                    <rect key="frame" x="91" y="60.5" width="212" height="14.5"/>
+                                                    <rect key="frame" x="91" y="61" width="212" height="14"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -222,7 +222,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2QP-MG-FBh">
-                                                    <rect key="frame" x="91" y="41.5" width="152" height="13"/>
+                                                    <rect key="frame" x="91" y="42" width="152" height="13"/>
                                                     <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="13" id="Sa6-XO-n2d"/>
@@ -232,7 +232,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="豚鼠游戏" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEE-xv-L3a">
-                                                    <rect key="frame" x="91" y="10" width="152" height="26.5"/>
+                                                    <rect key="frame" x="91" y="10" width="152" height="27"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                     <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>

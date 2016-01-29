@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -8,7 +8,7 @@
         <!--设置-->
         <scene sceneID="p6Z-MA-iyh">
             <objects>
-                <viewController storyboardIdentifier="SetView" id="BIF-Qr-jH5" customClass="SetViewController" customModule="CavyGame" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SetView" id="BIF-Qr-jH5" customClass="SetViewController" customModule="SwiftCavyGame" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bAD-n6-i3y"/>
                         <viewControllerLayoutGuide type="bottom" id="EOb-G4-P5x"/>
@@ -22,14 +22,14 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="setCell" rowHeight="91" id="PWp-kX-dPU" customClass="SetTableViewCell" customModule="CavyGame" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="setCell" rowHeight="91" id="PWp-kX-dPU" customClass="SetTableViewCell" customModule="SwiftCavyGame" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PWp-kX-dPU" id="rys-nk-sYC">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ktA-yX-Hks">
-                                                    <rect key="frame" x="0.0" y="45" width="414" height="0.5"/>
+                                                    <rect key="frame" x="0.0" y="45" width="414" height="1"/>
                                                     <animations/>
                                                     <color key="backgroundColor" red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -37,7 +37,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2NM-sp-ajP">
-                                                    <rect key="frame" x="19" y="15" width="40.5" height="15"/>
+                                                    <rect key="frame" x="19" y="15" width="41" height="15"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -51,7 +51,7 @@
                                                     </connections>
                                                 </switch>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WbA-jj-sct">
-                                                    <rect key="frame" x="-30" y="91" width="444" height="0.5"/>
+                                                    <rect key="frame" x="-30" y="91" width="444" height="1"/>
                                                     <animations/>
                                                     <color key="backgroundColor" red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -59,10 +59,10 @@
                                                     </constraints>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6YU-Wk-7jU">
-                                                    <rect key="frame" x="0.0" y="46" width="414" height="44.5"/>
+                                                    <rect key="frame" x="0.0" y="46" width="414" height="45"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U55-RE-0KE">
-                                                            <rect key="frame" x="19" y="10" width="32.5" height="12"/>
+                                                            <rect key="frame" x="19" y="10" width="33" height="12"/>
                                                             <animations/>
                                                             <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="12"/>
                                                             <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>

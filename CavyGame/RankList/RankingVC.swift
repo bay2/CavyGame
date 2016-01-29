@@ -104,7 +104,7 @@ class RankingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func addRankListView(){
         
         self.rankListView = UIView(frame: CGRectMake(0, 0, screenRect.width, rankListHeight))
-        rankListView.backgroundColor = UIColor(hexString: "#f1f1f1")
+        rankListView.backgroundColor = UIColor(hexString: "#f5f5f5")
         
         let lineView = UIView()
         lineView.backgroundColor = UIColor(hexString: "#dedede")
