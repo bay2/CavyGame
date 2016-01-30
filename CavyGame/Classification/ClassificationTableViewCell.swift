@@ -52,7 +52,13 @@ class ClassificationTableViewCell: UITableViewCell {
     // tag 行数
     var tagRowNum: Int {
         get {
-            return ((tagViewNum / columnNum) + (tagViewNum % columnNum))
+            
+            if tagViewNum % columnNum == 0 {
+                return (tagViewNum / columnNum)
+            } else {
+                return (tagViewNum / columnNum) + 1
+            }
+            
         }
     }
     
@@ -272,18 +278,13 @@ class ClassificationTableViewCell: UITableViewCell {
                     make.left.equalTo(tagViews).offset((CGFloat(gap) + tagViewSize.width) * CGFloat(curColumnIndex))
                 }
                 
-                // pad 一行的情况居中对齐
-                if !isIPhone() && tagRowNum == 1 {
-                    make.centerY.equalTo(tagViews)
+                if index < columnNum {
+                    // 第一行的布局
+                    make.top.equalTo(tagViews)
                 } else {
-                    
-                    if index < columnNum {
-                        // 第一行的布局
-                        make.top.equalTo(tagViews)
-                    } else {
-                        make.top.equalTo(tagViews).offset(CGFloat(index / columnNum) * (tagViewSize.height + tagRowGap))
-                    }
+                    make.top.equalTo(tagViews).offset(CGFloat(index / columnNum) * (tagViewSize.height + tagRowGap))
                 }
+
             }
             
             // 分割线布局
