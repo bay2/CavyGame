@@ -136,14 +136,14 @@ aboutTitle2="QQ粉丝群";
 aboutTitle3="官方微信号";
 aboutTitle4="进入官网";
 
-appinfo_title1="游戏简介";
-appinfo_title2="游戏截图";
-appinfo_title3="游戏信息";
+appinfo_title1="简介";
+appinfo_title2="截图";
+appinfo_title3="信息";
 appinfo_title4="开发商：";
-appinfo_title5="游戏类型：";
+appinfo_title5="类型：";
 appinfo_title6="更新日期：";
 appinfo_title7="版本信息：";
-appinfo_title8="游戏评论";
+appinfo_title8="评论";
 appinfo_title9="应用详情";
 app_latest_update="本次更新";
 

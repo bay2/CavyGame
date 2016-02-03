@@ -136,14 +136,14 @@ aboutTitle2="QQ粉絲群";
 aboutTitle3="官方微信號";
 aboutTitle4="進入官網";
 
-appinfo_title1="遊戲簡介";
-appinfo_title2="遊戲截圖";
-appinfo_title3="遊戲資訊";
+appinfo_title1="簡介";
+appinfo_title2="截圖";
+appinfo_title3="資訊";
 appinfo_title4="開發商：";
-appinfo_title5="遊戲類型：";
+appinfo_title5="類型：";
 appinfo_title6="更新日期：";
 appinfo_title7="版本資訊：";
-appinfo_title8="遊戲評論";
+appinfo_title8="評論";
 appinfo_title9="應用程式詳情";
 
 reviewBtn="立即評論";
