@@ -236,7 +236,7 @@ class RankingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if gameInfoItem == nil{
             return cell;
         }
-        cell.title.text = "\(indexPath.row + 1)" + gameInfoItem.gamename!
+        cell.title.text = "\(indexPath.row + 1)." + gameInfoItem.gamename!
         cell.detail.text = gameInfoItem.gamedesc
         cell.down.whichPage = rankTableView.btn_blogPage
         cell.itemInfo = gameInfoItem
